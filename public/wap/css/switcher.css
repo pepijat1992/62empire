@@ -1,0 +1,380 @@
+.navbar-home .content-right a i {
+	animation: scale 1.3s linear infinite;
+}
+
+@keyframes scale {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.1);
+	}
+}
+
+.sidebar-right {
+	width: 235px !important;
+	padding: 20px !important;
+	z-index: 999;
+	position: fixed;
+	top: 0;
+	right: -260px;
+	z-index: 999;
+	background: #fff;
+	overflow-y: auto;
+}
+
+.sidebar-right .nav-tabs {
+	border: 0;
+	height: 30px;
+	background: transparent;
+}
+
+.sidebar-right .nav-tabs .nav-item {
+	height: 30px;
+	line-height: 27px;
+	padding: 0 5px;
+	border-radius: 5px;
+	flex: 0 0 50%;
+	max-width: 100%;
+}
+
+.sidebar-right .nav-tabs a {
+	background: #fff;
+	color: #333;
+	width: 100%;
+	display: inline-block;
+	height: 30px;
+	line-height: 28px !important;
+	text-align: center;
+	border-radius: 5px;
+	font-weight: 500;
+	font-size: 14px;
+	border: 1px solid #212121;
+	padding: 0;
+}
+
+.sidebar-right .nav-tabs li:first-child {
+	padding-left: 0;
+}
+
+.sidebar-right .nav-tabs li:last-child {
+	padding-right: 0;
+}
+
+.sidebar-right .nav-tabs li:first-child a {
+	background: #fff;
+	border-color: #212121;
+}
+
+.sidebar-right .nav-tabs li:last-child a {
+	background: #212121;
+	border-color: #fff;
+	color: #fff;
+}
+
+.sidebar-right .contents-tabs {
+	margin-top: 20px;
+	padding: 0 10px;
+	text-align: center;
+}
+
+.sidebar-right .tab-content {
+	margin-top: 20px;
+	text-align: center;
+}
+
+.sidebar-right .tab-content .content-choose h6 {
+	margin-bottom: 10px;
+	color: #333;
+}
+
+.sidebar-right .tab-content .content-choose ul  li {
+	display: inline-block;
+	line-height: 30px;
+	margin: 0 2px;
+}
+
+.sidebar-right .tab-content .content-choose ul  li a {
+	width: 100%;
+	height: 30px;
+	display: inline-block;
+	border-radius: 2px;
+	padding: 0 16px;
+}
+
+/*sidebar overlay*/
+.menu-open .side-overlay {
+ display: block;
+ position: fixed;
+ top: 0;
+ right: 0;
+ bottom: 0;
+ left: 0;
+ height: 100vh;
+ z-index: 997;
+ background-color: rgba(0, 0, 0, 0.8);
+ -webkit-animation: fade 500ms;
+ animation: fade 500ms;
+}
+
+.bg-blue {
+	background: #574cf2;
+}
+
+.sidebar-right .content-choose li a.bg-blue:hover {
+	background: #574cf2;
+}
+
+
+.bg-red {
+	background: #ff1744;
+}
+
+.sidebar-right .content-choose li a.bg-red:hover {
+	background: #ff1744;
+}
+
+
+.bg-purple {
+	background: #9c27b0;
+}
+
+.sidebar-right .content-choose li a.bg-purple:hover {
+	background: #9c27b0;
+}
+
+
+.bg-green {
+	background: #10c58f;
+}
+
+.sidebar-right .content-choose li a.bg-green:hover {
+	background: #10c58f;
+}
+
+
+.bg-orange {
+	background: #ff9800;
+}
+
+.sidebar-right .content-choose li a.bg-orange:hover {
+	background: #ff9800;
+}
+
+
+.bg-blue-gradient {
+	background: linear-gradient(200deg, #1ad6fd, #574cf2);
+}
+
+.sidebar-right .content-choose li a.bg-blue-gradient:hover {
+	background: linear-gradient(200deg, #1ad6fd, #574cf2);
+}
+
+
+.bg-red-gradient {
+	background: linear-gradient(200deg, #ff5e3a, #ff2a68);
+}
+
+.sidebar-right .content-choose li a.bg-red-gradient:hover {
+	background: linear-gradient(200deg, #ff5e3a, #ff2a68);
+}
+
+
+.bg-purple-gradient {
+	background: linear-gradient(200deg, #c644fc, #5856d6);
+}
+
+.sidebar-right .content-choose li a.bg-purple-gradient:hover {
+	background: linear-gradient(200deg, #c644fc, #5856d6);
+}
+
+
+.bg-green-gradient {
+	background: linear-gradient(200deg, #87fc70, #0bd318);
+}
+
+.sidebar-right .content-choose li a.bg-green-gradient:hover {
+	background: linear-gradient(200deg, #87fc70, #0bd318);
+}
+
+
+.bg-orange-gradient {
+	background: linear-gradient(200deg, #ff9500, #ff5e3a);
+}
+
+.sidebar-right .content-choose li a.bg-orange-gradient:hover {
+	background: linear-gradient(200deg, #ff9500, #ff5e3a);
+}
+
+.bg-multi-color {
+	background: linear-gradient(450deg, #574cf2  30%, rgba(0,0,0,0) 30%), linear-gradient(90deg, #ff1744 60%, #10c58f 60%);
+}
+
+.bg-multi-color-gradient {
+	background: linear-gradient(450deg, #574cf2  20%, rgba(0,0,0,0) 40%), linear-gradient(90deg, #ff1744 50%, #10c58f 90%);
+}
+
+
+/*material color switcher*/
+.bg-material-blue {
+	background: #574cf2;
+}
+
+.bg-material-red {
+	background: #ff1744;
+}
+
+.bg-material-purple {
+	background: #9c27b0;
+}
+
+.bg-material-green {
+	background: #4caf50;
+}
+
+.bg-material-orange {
+	background: #ff9800;
+}
+
+.bg-material-blue:hover {
+	background: #574cf2 !important;
+}
+
+.bg-material-red:hover {
+	background: #ff1744 !important;
+}
+
+.bg-material-purple:hover {
+	background: #9c27b0 !important;
+}
+
+.bg-material-green:hover {
+	background: #4caf50 !important;
+}
+
+.bg-material-orange:hover {
+	background: #ff9800 !important;
+}
+
+/*ios color switcher*/
+.bg-ios-blue {
+	background: #007aff;
+}
+
+.bg-ios-red {
+	background: #ff3b30;
+}
+
+.bg-ios-purple {
+	background: #5856d6;
+}
+
+.bg-ios-green {
+	background: #4cd964;
+}
+
+.bg-ios-orange {
+	background: #ff9500;
+}
+
+.bg-ios-blue:hover {
+	background: #007aff !important;
+}
+
+.bg-ios-red:hover {
+	background: #ff3b30 !important;
+}
+
+.bg-ios-purple:hover {
+	background: #5856d6 !important;
+}
+
+.bg-ios-green:hover {
+	background: #4cd964 !important;
+}
+
+.bg-ios-orange:hover {
+	background: #ff9500 !important;
+}
+
+/*flat color switcher*/
+.bg-flat-blue {
+	background: #2980b9;
+}
+
+.bg-flat-red {
+	background: #e74c3c;
+}
+
+.bg-flat-purple {
+	background: #8e44ad;
+}
+
+.bg-flat-green {
+	background: #27ae60;
+}
+
+.bg-flat-orange {
+	background: #f39c12;
+}
+
+.bg-flat-blue:hover {
+	background: #2980b9 !important;
+}
+
+.bg-flat-red:hover {
+	background: #e74c3c !important;
+}
+
+.bg-flat-purple:hover {
+	background: #8e44ad !important;
+}
+
+.bg-flat-green:hover {
+	background: #27ae60 !important;
+}
+
+.bg-flat-orange:hover {
+	background: #f39c12 !important;
+}
+
+/*classic color switcher*/
+.bg-classic-blue {
+	background: #b8bda8;
+}
+
+.bg-classic-red {
+	background: #cbae77;
+}
+
+.bg-classic-purple {
+	background: #d5cab5;
+}
+
+.bg-classic-green {
+	background: #cfdedd;
+}
+
+.bg-classic-orange {
+	background: #d4d0a2;
+}
+
+.bg-classic-blue:hover {
+	background: #b8bda8 !important;
+}
+
+.bg-classic-red:hover {
+	background: #cbae77 !important;
+}
+
+.bg-classic-purple:hover {
+	background: #d5cab5 !important;
+}
+
+.bg-classic-green:hover {
+	background: #cfdedd !important;
+}
+
+.bg-classic-orange:hover {
+	background: #d4d0a2 !important;
+}
