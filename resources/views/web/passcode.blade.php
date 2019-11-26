@@ -11,27 +11,22 @@
                         <form action="{{route('post_check_passcode')}}" method="POST" id="passcode_form">
                             @csrf
                             <div class="dep_det_bx">
-                                <h4>{{__('words.check_passcode')}}</h4>
+                                <h4 class="text-center">{{__('words.check_passcode')}}</h4>
                                 <hr style="border-color: #ddd;" />
                                 <div class="row">
                                     <div class="col-md-10 mt-4 mx-auto">
-                                        <div class="form-group row">
-                                            <label for="" class="col-md-4 text-right mt-2">{{__('words.passcode')}}</label>
-                                            <div class="col-md-8">
-                                                <input type="text" class="form-control" name="passcode" style="width:178px;" id="input_passcode" placeholder="{{__('words.passcode')}}" maxlength="4" required>                            
-                                                <div id="inline-keypad" class="mt-2" style="width:178px;"></div>
-                                                @error('passcode')
-                                                    <span class="text-danger" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                                            </div>
+                                        <div class="form-group text-center">
+                                            <input type="text" class="form-control mx-auto" name="passcode" style="width:178px;" id="input_passcode" placeholder="{{__('words.passcode')}}" maxlength="4" required>                            
+                                            <div id="inline-keypad" class="mt-2 mx-auto" style="width:178px;"></div>
+                                            @error('passcode')
+                                                <span class="text-danger" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
-                                        <div class="form-group row">
-                                            <div class="col-md-4"></div>
-                                            <div class="col-md-8">
-                                                <button type="submit" class="btn btn-primary" style="width:178px;" id="btn-sign-in">{{__('words.submit')}}</button>
-                                            </div>
+                                        <div class="form-group text-center">
+                                            <button type="submit" class="btn btn-primary mx-auto" style="width:178px;" id="btn-sign-in">{{__('words.submit')}}</button>
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
