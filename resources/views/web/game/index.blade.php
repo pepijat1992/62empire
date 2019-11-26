@@ -66,7 +66,13 @@
                                 @else
                                     <a href="{{$download_link}}" class="btn btn-success btn-block mt-3" id="{{$btn_id}}">{{__('words.download')}}</a>
                                 @endif
-                                <h5 class="mt-3 text-center text-info">{{__('words.balance')}} :  <span id="game_balance">{{$game_account->balance}}</span> <i class="fa fa-refresh" id="btn-refresh"></i></h5>
+                                
+                                <div class="row mt-3">
+                                    <div class="col-12 clearfix">
+                                        <h5 class="float-left text-info mt-2">{{__('words.balance')}} :  <span id="balance">{{$game_account->balance}}</span> <i class="fa fa-refresh" id="btn-refresh"></i></h5>
+                                        <button class="btn btn-info bg-light btn-sm p-0 float-right" data-toggle="modal" data-target="#instructionModal"><img src="{{asset('images/icon_instruction.png')}}" height="28" alt=""></button>
+                                    </div>
+                                </div>
                                 <div class="row mt-3">
                                     <div class="col-6">
                                         <button type="button" class="btn btn-primary btn-block" id="btn-deposit">{{__('words.deposit')}}</button>
@@ -138,6 +144,26 @@
                         <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times mr-1"></i>&nbsp;{{__('words.close')}}</button>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>    
+
+    <div class="modal fade" id="instructionModal" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title font-weight-bold">{{__('words.instruction')}}</h5>
+                    <button class="close" data-dismiss="modal" aria-label="close">
+                        <span aria-hidden="true"><i class="fa fa-close"></i></span>
+                    </button>
+                </div>
+                <div class="modal-body">                    
+                    <div class="p-4">
+                        <p>
+                            Player Id will be needed to copy and paste into the game.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
