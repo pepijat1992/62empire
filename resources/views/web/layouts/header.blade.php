@@ -6,8 +6,8 @@
     <div class="main-header">
         <div class="container">
             <div class="row w-100">
-                <div class="col-md-3 logo">
-                    <a href="{{url('/')}}"><img src="{{asset('images/logo.png')}}" width="180"></a>
+                <div class="col-md-3 logo py-3">
+                    <a href="{{url('/')}}"><img src="{{asset('images/logo.png')}}" width="310"></a>
                 </div>
                 <div class="col-md-9 pt-3 m-auto header-info d-block">
                     <div class="row">
