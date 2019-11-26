@@ -95,4 +95,27 @@ class VerifyController extends Controller
         session()->put('locale', $locale);
         return redirect()->back();
     }
+
+    public function check_passcode(Request $request) {
+        if(is_Mobile()){
+            return view('wap.passcode');
+        } else {
+            return view('web.passcode');
+        }
+    }
+
+    public function post_check_passcode(Request $request) {
+        $request->validate([
+            'passcode' => 'required|digits:4',
+        ]);
+
+        $user = User::find($request->session()->get('passcode:user:id'));
+        if($user->passcode == $request->get('passcode')){
+            Auth::login($user);
+            $request->session()->forget('passcode:user:id');
+            return redirect(route('home')); 
+        } else {
+            return back()->withErrors(['passcode' => 'Incorrect passcode']);
+        }        
+    }
 }

@@ -269,6 +269,7 @@
         'total_amount' => 'Total Amount',
         'online' => 'Online',
         'instruction' => 'Instruction',
-        'passcode' => 'PassCode',
+        'passcode' => 'Passcode',
+        'check_passcode' => 'Check Passcode',
         
     ];

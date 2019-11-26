@@ -25,6 +25,9 @@ Route::get('/verify', 'VerifyController@show')->name('verify');
 Route::post('/login_verify', 'VerifyController@login_verify')->name('login_verify');
 Route::post('/register_verify', 'VerifyController@register_verify')->name('register_verify');
 
+Route::get('/check_passcode', 'VerifyController@check_passcode')->name('check_passcode');
+Route::post('/post_check_passcode', 'VerifyController@post_check_passcode')->name('post_check_passcode');
+
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');

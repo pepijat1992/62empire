@@ -1,7 +1,4 @@
 @extends('web.layouts.master')
-@section('style')    
-    <link rel="stylesheet" href="{{asset('web/plugins/keypad/css/jquery.keypad.css')}}">
-@endsection
 @section('content')
     <div id="content" class="mt-5 mb-5">
         <div class="container">
@@ -38,17 +35,6 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="" class="col-md-4 text-right mt-2">{{__('words.passcode')}}</label>
-                                            <div class="col-md-8">
-                                                <input type="text" class="form-control" name="passcode" id="input_passcode" placeholder="{{__('words.passcode')}}" maxlength="4" required>                            
-                                                @error('passcode')
-                                                    <span class="text-danger" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
                                             <label for="" class="col-md-4 text-right mt-2">{{__('words.password')}}</label>
                                             <div class="col-md-8">
                                                 <input type="password" class="form-control" name="password" placeholder="{{__('words.password')}}" required>                            
@@ -78,15 +64,4 @@
             </div>
         </div>
     </div>
-@endsection
-
-
-@section('script')
-    <script src="{{asset('web/plugins/keypad/js/jquery.plugin.min.js')}}"></script>
-    <script src="{{asset('web/plugins/keypad/js/jquery.keypad.js')}}"></script>
-    <script>
-        $(document).ready(function(){
-            $("#input_passcode").keypad();
-        });
-    </script>
 @endsection
