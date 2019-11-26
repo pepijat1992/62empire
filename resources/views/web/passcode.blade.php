@@ -1,38 +1,71 @@
 @extends('web.layouts.master')
 @section('style')    
     <link rel="stylesheet" href="{{asset('web/plugins/keypad/css/jquery.keypad.css')}}">
+    <style>
+        .input-result {
+            background: none;
+            color: white;
+            border: none;
+            font-size: 42px !important;
+            padding-top: 0;
+            padding-bottom: 0;
+            line-height: 1;
+            text-align: right;
+        }
+        .input-result:focus{
+            border: none;
+            outline: none;
+        }
+        .btn-submit {
+            background-color: #e74c3c !important;
+            border-color: #e74c3c !important;
+        }
+    </style>
 @endsection
 @section('content')
     <div id="content" class="mt-5 mb-5">
         <div class="container">
-            <div class="row">
-                <div id="main" class="col-md-8 col-lg-9 mx-auto">
-                    <xx-sign-in ref="signin_form" inline-template>
-                        <form action="{{route('post_check_passcode')}}" method="POST" id="passcode_form">
-                            @csrf
-                            <div class="dep_det_bx">
-                                <h4 class="text-center">{{__('words.check_passcode')}}</h4>
-                                <hr style="border-color: #ddd;" />
-                                <div class="row">
-                                    <div class="col-md-10 mt-4 mx-auto">
-                                        <div class="form-group text-center">
-                                            <input type="text" class="form-control mx-auto" name="passcode" style="width:270px;" id="input_passcode" placeholder="{{__('words.passcode')}}" maxlength="4" required>                            
-                                            <div id="inline-keypad" class="mt-2 mx-auto" style="width:270px;"></div>
-                                            @error('passcode')
-                                                <span class="text-danger" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-                                        <div class="form-group text-center">
-                                            <button type="submit" class="btn btn-primary mx-auto" style="width:270px;" id="btn-sign-in">{{__('words.submit')}}</button>
-                                        </div>
-                                        </div>
-                                    </div>
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center">
+                    <form method="POST" action="{{route('post_check_passcode')}}" id="login_form">
+                        @csrf
+                        <h3 class="text-center">{{__('words.check_passcode')}}</h3>
+                        <div id="inline-keypad" class="mt-3 mx-auto is-keypad" style="width:270px;">
+                            <div class="keypad-inline">
+                                <div class="keypad-row">
+                                    <input type="text" class="input-result w-100" name="passcode" id="input_passcode" autocomplete="off" maxlength="4" value="{{old('passcode')}}" autofocus required>
+                                </div>
+                                <div class="keypad-row">                                    
+                                    <button type="button" class="keypad-special keypad-clear" title="Erase all the text">C</button>
+                                    <button type="button" class="keypad-special keypad-back" title="Close the keypad">&lt;</button>
+                                    <button type="button" class="keypad-special keypad-percent" title="Close the keypad">%</button>
+                                    <button type="button" class="keypad-special keypad-operator" title="Close the keypad">÷</button>
+                                </div>
+                                <div class="keypad-row">
+                                    <button type="button" class="keypad-key">1</button>
+                                    <button type="button" class="keypad-key">2</button>
+                                    <button type="button" class="keypad-key">3</button>
+                                    <button type="button" class="keypad-special keypad-operator" title="Close the keypad">×</button>
+                                </div>
+                                <div class="keypad-row">
+                                    <button type="button" class="keypad-key">4</button>
+                                    <button type="button" class="keypad-key">5</button>
+                                    <button type="button" class="keypad-key">6</button>
+                                    <button type="button" class="keypad-special keypad-operator" title="Erase all the text">-</button>
+                                </div>
+                                <div class="keypad-row">
+                                    <button type="button" class="keypad-key">7</button>
+                                    <button type="button" class="keypad-key">8</button>
+                                    <button type="button" class="keypad-key">9</button>
+                                    <button type="button" class="keypad-special keypad-operator" title="Erase the previous character">+</button>
+                                </div>
+                                <div class="keypad-row">
+                                    <button type="button" class="keypad-key" style="width:117px">0</button>
+                                    <button type="submit" class="keypad-special btn-submit" style="width:117px;font-size:25px !important;">{{__('words.submit')}}</button>
                                 </div>
                             </div>
-                        </form>
-                    </xx-sign-in>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -41,17 +74,5 @@
 
 
 @section('script')
-    <script src="{{asset('web/plugins/keypad/js/jquery.plugin.min.js')}}"></script>
-    <script src="{{asset('web/plugins/keypad/js/jquery.keypad.js')}}"></script>
-    <script>
-        $(document).ready(function(){
-            $('#inline-keypad').keypad({onKeypress: appendValue, prompt: ''}); 
-                    
-            function appendValue(key) { 
-                var field = $('#input_passcode'); 
-                $.keypad.insertValue(field, key); 
-                field.focus(); 
-            }
-        });
-    </script>
+    <script src="{{asset('web/js/calculator.js')}}"></script>
 @endsection

@@ -67,8 +67,8 @@ img.keypad-trigger {
 .keypad-key, .keypad-special {
 	margin: 0.125em;
 	padding: 0em;
-	width: 55px;
-	height: 55px;
+	width: 52px;
+	height: 52px;
 	background-color: #333333;
 	color: white;
 	font-size: 35px;
@@ -98,17 +98,25 @@ img.keypad-trigger {
 	font-weight: bold;
 }
 .keypad-clear {
-	background-color: #ffa02c;
+	background-color: #a6a4a7;
 }
 .keypad-back {
-	background-color: #ffa02c;
+	background-color: #a6a4a7;
 }
 .keypad-close {
-	background-color: #ffa02c;
+	background-color: #a6a4a7;
+}
+.keypad-percent {
+	background-color: #a6a4a7;
 }
 .keypad-shift {
 	background-color: #0aa;
 }
 button:focus {
 	outline: none !important;
+}
+
+
+.keypad-operator {
+	background-color: #ffa02c;
 }
