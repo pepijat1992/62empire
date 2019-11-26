@@ -24,8 +24,12 @@
                         <div class="col-8 value">{{$_user->username}}</div>
                     </div>
                     <div class="row mt-1">
-                        <div class="col-4 text-right field">{{__('words.name')}} : </div>
-                        <div class="col-8 value">{{$_user->name}}</div>
+                        <div class="col-4 text-right pt-2 field">{{__('words.name')}} : </div>
+                        <div class="col-8 value">{{$_user->name}} <span class="ml-4" style="font-size: 20px;" data-toggle="modal" data-target="#changeNameModal"><i class="fa fa-edit"></i></span></div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col-4 text-right pt-2 field">{{__('words.passcode')}} : </div>
+                        <div class="col-8 value">{{$_user->passcode}} <span class="ml-4" style="font-size: 20px;" data-toggle="modal" data-target="#changePassCodeModal"><i class="fa fa-edit"></i></span></div>
                     </div>
                     <div class="row mt-1">
                         <div class="col-4 text-right field">{{__('words.mobile')}} : </div>
@@ -38,9 +42,6 @@
                 </div>
                 <div class="content b-shadow mt-4">
                     <h5><a href="javascript:;" class="d-block" id="btn-change-password" data-toggle="modal" data-target="#changePasswordModal"><span class="content-icon"><i class="fa fa-cog"></i></span>&nbsp;&nbsp;{{__('words.change_password')}}</a></h5>
-                </div>
-                <div class="content b-shadow mt-2">
-                    <h5><a href="javascript:;" class="d-block" id="btn-change-name" data-toggle="modal" data-target="#changeNameModal"><span class="content-icon"><i class="fa fa-user"></i></span>&nbsp;&nbsp;{{__('words.change_name')}}</a></h5>
                 </div>
             </div>
         </div>
@@ -116,6 +117,35 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="changePassCodeModal" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title font-weight-bold">{{__('words.change_passcode')}}</h5>
+                <button class="close" data-dismiss="modal" aria-label="close">
+                    <span aria-hidden="true"><i class="fa fa-close"></i></span>
+                </button>
+            </div>
+            <form method="POST" action="" id="change_passcode_form">
+                @csrf
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="control-label">{{__('words.passcode')}} <span class="text-danger">*</span></label>
+                        <input class="form-control passcode" type="number" name="passcode" value="{{$_user->passcode}}" placeholder="{{__('words.passcode')}}" required />
+                        <span class="invalid-feedback passcode_error" role="alert">
+                            <strong></strong>
+                        </span>
+                    </div>
+                </div>   
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-submit" onclick="show_loading()"><i class="fa fa-check mr-1"></i>&nbsp;{{__('words.save')}}</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times mr-1"></i>&nbsp;{{__('words.close')}}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 @endsection
 
 @section('script')
@@ -128,7 +158,7 @@
                     dataType: 'json',
                     data: $('#change_password_form').serialize(),
                     success : function(response) {
-                        // $(".page-loader-wrapper").fadeOut();
+                        hide_loading()
                         if(response.status.msg == 'success') {
                             swal({
                                 title: response.data,
@@ -160,13 +190,12 @@
                         }
                     },
                     error: function(response) {  
-                        // $(".page-loader-wrapper").fadeOut();
+                        $(".page-loader-wrapper").fadeOut();
                         swal("{{__('words.something_went_wrong')}}", '', 'error')
                         console.log(response)
                     }
                 });
             });
-
             
             $("#change_name_form .btn-submit").click(function () {                
                 $.ajax({
@@ -175,7 +204,7 @@
                     dataType: 'json',
                     data: $('#change_name_form').serialize(),
                     success : function(response) {
-                        // $(".page-loader-wrapper").fadeOut();
+                        hide_loading()
                         if(response.status.msg == 'success') {
                             swal({
                                 title: response.data,
@@ -194,11 +223,45 @@
                                 $('#change_name_form .name_error').show();
                                 $('#change_name_form .name').focus();
                             }
-    
-                            if(messages.name) {
-                                $('#change_name_form .name_error strong').text(messages.name[0]);
-                                $('#change_name_form .name_error').show();
-                                $('#change_name_form .name').focus();
+
+                            if(messages.error) {
+                                swal(messages.error, '', 'error');
+                            }
+                        }
+                    },
+                    error: function(response) {  
+                        $(".page-loader-wrapper").fadeOut();
+                        swal("{{__('words.something_went_wrong')}}", '', 'error')
+                        console.log(response)
+                    }
+                });
+            });
+            
+            $("#change_passcode_form .btn-submit").click(function () {                
+                $.ajax({
+                    url: "{{route('wap.change_passcode')}}",
+                    type: 'POST',
+                    dataType: 'json',
+                    data: $('#change_passcode_form').serialize(),
+                    success : function(response) {
+                        hide_loading()
+                        if(response.status.msg == 'success') {
+                            swal({
+                                title: response.data,
+                                type: "success",
+                                confirmButtonColor: "#007BFF",
+                                confirmButtonText: "OK",
+                            },
+                            function(){
+                                window.location.reload();
+                            });                            
+                        }
+                        else if(response.status.msg == 'error') {
+                            let messages = response.data;
+                            if(messages.passcode) {
+                                $('#change_passcode_form .passcode_error strong').text(messages.passcode[0]);
+                                $('#change_passcode_form .passcode_error').show();
+                                $('#change_passcode_form .passcode').focus();
                             }
 
                             if(messages.error) {
@@ -207,9 +270,8 @@
                         }
                     },
                     error: function(response) {  
-                        // $(".page-loader-wrapper").fadeOut();
+                        hide_loading()
                         swal("{{__('words.something_went_wrong')}}", '', 'error')
-                        console.log(response)
                     }
                 });
             });

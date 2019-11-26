@@ -211,6 +211,19 @@ class IndexController extends Controller
         return responseSuccess(__('words.updated_successfully'));
     }
 
+    public function change_passcode(Request $request) {
+        $validator = $this->verify($request, 'wap.change_passcode');
+        if ($validator->fails()) {
+            $messages = $validator->messages()->toArray();
+            return responseWrong($messages);
+        }
+        $data = $request->all();
+        $user = Auth::user();
+        $user->passcode = $data['passcode'];
+        $user->save();
+        return responseSuccess(__('words.updated_successfully'));
+    }
+
     public function transfer_credit(Request $request) {
         $request->validate([
             'amount' => 'required|min:0',

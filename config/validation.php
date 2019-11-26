@@ -151,5 +151,12 @@ return [
                 'message' => ['required' => 'The name field is required.']
             ],
         ],
+        'change_passcode' => [
+            'passcode' => [
+                'name' => 'PassCode',
+                'rules' => 'required|digits:4',
+                'message' => ['required' => 'The name field is required.', 'digits' => 'PassCode should be 4 digits.']
+            ],
+        ],
     ],
 ];

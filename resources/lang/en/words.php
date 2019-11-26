@@ -81,6 +81,7 @@
         'add_player' => 'Add Player',
         'edit_player' => 'Edit Player',
         'change_password' => 'Change Password',
+        'change_passcode' => 'Change PassCode',
         'change_name' => 'Change Name',
         'member_center' => 'Member Center',
         'online_deposit' => 'Online Deposit',
@@ -268,5 +269,6 @@
         'total_amount' => 'Total Amount',
         'online' => 'Online',
         'instruction' => 'Instruction',
+        'passcode' => 'PassCode',
         
     ];

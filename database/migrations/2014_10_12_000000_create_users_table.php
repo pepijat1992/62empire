@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('name')->nullable();
             $table->string('phone_number')->unique();
             $table->string('password')->nullable();
+            $table->string('passcode')->nullable();
             $table->decimal('score', 16, 2)->default(0);
             $table->bigInteger('agent_id')->nullable();
             $table->string('register_ip')->nullable();

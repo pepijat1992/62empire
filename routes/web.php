@@ -49,6 +49,7 @@ Route::group(['prefix' => 'm', 'namespace' => 'Wap'],function ($router){
     $router->get('bank_account/delete/{id}', 'IndexController@delete_bank_account')->name('wap.bank_account.delete');
     $router->get('setting', function(){config(['site.wap_footer' => 'me']); return view('wap.setting.index');})->name('wap.setting');
     $router->post('change_password', 'IndexController@change_password')->name('wap.change_password');
+    $router->post('change_passcode', 'IndexController@change_passcode')->name('wap.change_passcode');
     $router->post('change_name', 'IndexController@change_name')->name('wap.change_name');
 
     $router->post('transfer_credit', 'IndexController@transfer_credit')->name('wap.transfer_credit');

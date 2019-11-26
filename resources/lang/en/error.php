@@ -6,4 +6,5 @@
         'withdraw_flag_error' => 'Withdraw is disabled.',
         'something_went_wrong' => 'Something went wrong.',
         'insufficient_balance' => 'Insufficient Balance.',
+        'invalid_credential' => 'Invalid credential.',
     ];

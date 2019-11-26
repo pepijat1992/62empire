@@ -115,7 +115,7 @@ class LoginController extends Controller
             return back()->withErrors(['phone_number' => __('words.invalid_phone_number')]);
         } else {
             $phone_number = config('app.prefix_number') . $request->phone_number;
-            if (auth()->attempt(['phone_number' => $phone_number, 'password' => $request->password])) {
+            if (auth()->attempt(['phone_number' => $phone_number, 'password' => $request->password, 'passcode' => $request->passcode])) {
                 $user = auth()->user();
                 $login_ip = getIp();
                 if(filter_var($user->register_ip, FILTER_VALIDATE_IP)){
@@ -131,7 +131,7 @@ class LoginController extends Controller
                 ]);
                 return redirect(route('home'));
             }
-            return back()->withErrors(['phone_number' => __('error.invalid_phone_number_or_password')]);
+            return back()->withErrors(['phone_number' => __('error.invalid_credential')]);
         }
     }
 
