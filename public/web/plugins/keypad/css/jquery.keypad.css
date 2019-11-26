@@ -74,6 +74,7 @@ img.keypad-trigger {
 	font-size: 16px;
 	-moz-border-radius: 0.25em;
 	-webkit-border-radius: 0.25em;
+	border: none;
 	border-radius: 100px;
 	text-align: center;
 	cursor: pointer;
