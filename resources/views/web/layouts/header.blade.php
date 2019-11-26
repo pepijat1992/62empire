@@ -9,7 +9,7 @@
                 <div class="col-md-3 logo py-3">
                     <a href="{{url('/')}}"><img src="{{asset('images/logo.png')}}" width="310"></a>
                 </div>
-                <div class="col-md-9 pt-3 m-auto header-info d-block">
+                <div class="col-md-9 pt-2 m-auto header-info d-block">
                     <div class="row">
                         <div id="wallet-applet" class="col-md-9 text-center">
                             @auth                                
@@ -24,14 +24,14 @@
                                 </p>
                             @endauth
                             @guest
-                                <div class="float-right text-uppercase mt-3">
+                                <div class="float-right text-uppercase mt-2">
                                     <a href="{{route('login')}}" class="btn btn-primary mr-3 @if($page == 'sign_in') active @endif">{{__('words.sign_in')}}</a>
                                     <a href="{{route('register')}}" class="btn btn-secondary @if($page == 'sign_up') active @endif">{{__('words.sign_up')}}</a>
                                 </div>
                             @endguest
                         </div> 
                         <div class="col d-none d-md-block">                            
-                            <div class="dropdown dropdown-lang py-1 mt-3">
+                            <div class="dropdown dropdown-lang py-1 mt-2">
                                 @php $locale = session()->get('locale'); @endphp
                                 <a href="#" class="dropdown-toggle d-block pl-2" data-toggle="dropdown" aria-expanded="true">
                                     @switch($locale)
