@@ -18,7 +18,8 @@
                                         <div class="form-group row">
                                             <label for="" class="col-md-4 text-right mt-2">{{__('words.passcode')}}</label>
                                             <div class="col-md-8">
-                                                <input type="text" class="form-control" name="passcode" id="input_passcode" placeholder="{{__('words.passcode')}}" maxlength="4" required>                            
+                                                <input type="text" class="form-control" name="passcode" style="width:178px;" id="input_passcode" placeholder="{{__('words.passcode')}}" maxlength="4" required>                            
+                                                <div id="inline-keypad" class="mt-2" style="width:178px;"></div>
                                                 @error('passcode')
                                                     <span class="text-danger" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -26,10 +27,10 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="form-group row mt-3">
+                                        <div class="form-group row">
                                             <div class="col-md-4"></div>
                                             <div class="col-md-8">
-                                                <button type="submit" class="btn btn-primary w-50 my-3 mx-auto" id="btn-sign-in">{{__('words.submit')}}</button>
+                                                <button type="submit" class="btn btn-primary" style="width:178px;" id="btn-sign-in">{{__('words.submit')}}</button>
                                             </div>
                                         </div>
                                     </div>
@@ -49,7 +50,13 @@
     <script src="{{asset('web/plugins/keypad/js/jquery.keypad.js')}}"></script>
     <script>
         $(document).ready(function(){
-            $("#input_passcode").keypad();
+            $('#inline-keypad').keypad({onKeypress: appendValue, prompt: ''}); 
+                    
+            function appendValue(key) { 
+                var field = $('#input_passcode'); 
+                $.keypad.insertValue(field, key); 
+                field.focus(); 
+            }
         });
     </script>
 @endsection
