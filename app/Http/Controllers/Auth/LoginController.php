@@ -37,6 +37,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
+        $this->middleware('passcode');
         $this->middleware('guest')->except('logout');
     }
 
@@ -139,6 +140,7 @@ class LoginController extends Controller
     public function logout()
     {
         Auth::logout();
+        session()->forget('passcode');
         return redirect(url('/'));
     }
 }

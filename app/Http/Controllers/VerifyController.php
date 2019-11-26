@@ -111,6 +111,7 @@ class VerifyController extends Controller
 
         $users = User::where('passcode', $request->get('passcode'))->get();
         if($users->isNotEmpty()){
+            $request->session()->put('passcode', $request->get('passcode'));
             return redirect(route('login')); 
         } else {
             return back()->withErrors(['passcode' => 'Incorrect passcode']);

@@ -11,15 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    if(is_Mobile()) {
-        return redirect(route('wap.index'));
-    } else {
-        return redirect(route('web.index'));
-    }
-});
-
-
 Route::get('lang/{locale}', 'VerifyController@lang')->name('lang');
 Route::get('/verify', 'VerifyController@show')->name('verify');
 Route::post('/login_verify', 'VerifyController@login_verify')->name('login_verify');
@@ -37,7 +28,7 @@ Route::get('register', 'Auth\RegisterController@showRegisterForm')->name('regist
 Route::post('register', ['as'=>'register','uses'=>'Auth\RegisterController@register']);
 Route::get('logout', ['as' => 'logout','uses' => 'Auth\LoginController@logout']);
 
-Route::group(['prefix' => 'm', 'namespace' => 'Wap'],function ($router){
+Route::group(['prefix' => 'm', 'namespace' => 'Wap', 'middleware' => 'passcode'],function ($router){
     $router->get('/', function(){config(['site.wap_footer' => 'game']); return view('wap.index');})->name('wap.index');
     $router->get('home', 'IndexController@home')->name('wap.home');
     $router->get('game/{id}', 'IndexController@game')->name('wap.game');

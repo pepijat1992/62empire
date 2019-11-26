@@ -10,7 +10,11 @@ class HomeController extends Controller
 {
     public function index(Request $request) {
         if(Auth::user()){
-            return redirect(route('home'));
+            if(is_Mobile()) {
+                return redirect(route('wap.index'));
+            } else {
+                return redirect(route('web.index'));
+            }
         }
         return redirect(route('check_passcode'));      
     }
