@@ -109,11 +109,9 @@ class VerifyController extends Controller
             'passcode' => 'required|digits:4',
         ]);
 
-        $user = User::find($request->session()->get('passcode:user:id'));
-        if($user->passcode == $request->get('passcode')){
-            Auth::login($user);
-            $request->session()->forget('passcode:user:id');
-            return redirect(route('home')); 
+        $users = User::where('passcode', $request->get('passcode'))->get();
+        if($users->isNotEmpty()){
+            return redirect(route('login')); 
         } else {
             return back()->withErrors(['passcode' => 'Incorrect passcode']);
         }        

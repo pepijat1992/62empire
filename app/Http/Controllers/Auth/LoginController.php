@@ -130,10 +130,7 @@ class LoginController extends Controller
                     'last_login_at' => date('Y-m-d H:i:s'),
                 ]);
 
-                Auth::logout();            
-                $request->session()->put('passcode:user:id', $user->id);
-
-                return redirect(route('check_passcode'));
+                return redirect(route('home'));
             }
             return back()->withErrors(['phone_number' => __('error.invalid_credential')]);
         }
