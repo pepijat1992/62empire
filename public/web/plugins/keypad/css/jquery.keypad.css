@@ -57,7 +57,7 @@ img.keypad-trigger {
 .keypad-space {
 	display: inline-block;
 	margin: 0.125em;
-	width: 2.6em;
+	width: 58px;
 }
 .keypad-half-space {
 	display: inline-block;
@@ -67,12 +67,11 @@ img.keypad-trigger {
 .keypad-key, .keypad-special {
 	margin: 0.125em;
 	padding: 0em;
-	width: 2.3em;
-	height: 2.3em;
+	width: 55px;
+	height: 55px;
 	background-color: #333333;
 	color: white;
-	font-weight: bold;
-	font-size: 16px;
+	font-size: 35px;
 	-moz-border-radius: 0.25em;
 	-webkit-border-radius: 0.25em;
 	border: none;
@@ -99,13 +98,13 @@ img.keypad-trigger {
 	font-weight: bold;
 }
 .keypad-clear {
-	background-color: #a00;
+	background-color: #ffa02c;
 }
 .keypad-back {
-	background-color: #00a;
+	background-color: #ffa02c;
 }
 .keypad-close {
-	background-color: #0a0;
+	background-color: #ffa02c;
 }
 .keypad-shift {
 	background-color: #0aa;

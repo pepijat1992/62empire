@@ -1,6 +1,20 @@
 @extends('wap.layouts.master')
 @section('style')    
     <link rel="stylesheet" href="{{asset('web/plugins/keypad/css/jquery.keypad.css')}}">
+    <style>
+        body{
+            border: solid 8px #007bff;
+        }
+        .navbar{
+            border: solid 8px #007bff;
+            border-bottom: none;
+        }
+        .footer-nav{
+            border: solid 8px #007bff;
+            border-top: none;
+            height: 64px;
+        }
+    </style>
 @endsection
 @section('content')
     <div class="home-login">
@@ -12,7 +26,7 @@
                         <h3 class="text-inverse text-center">{{__('words.check_passcode')}}</h3>
                         
                         <input type="passcode" class="form-control mt-3" name="passcode" id="input_passcode" maxlength="4" value="{{old('passcode')}}" placeholder="{{__('words.passcode')}}" required>                            
-                        <div id="inline-keypad" style="width:178px;margin:auto"></div>
+                        <div id="inline-keypad" style="margin:auto"></div>
                         @error('passcode')
                             <span class="text-danger" role="alert">
                                 <strong>{{ $message }}</strong>

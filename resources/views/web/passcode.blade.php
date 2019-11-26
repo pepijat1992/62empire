@@ -16,8 +16,8 @@
                                 <div class="row">
                                     <div class="col-md-10 mt-4 mx-auto">
                                         <div class="form-group text-center">
-                                            <input type="text" class="form-control mx-auto" name="passcode" style="width:178px;" id="input_passcode" placeholder="{{__('words.passcode')}}" maxlength="4" required>                            
-                                            <div id="inline-keypad" class="mt-2 mx-auto" style="width:178px;"></div>
+                                            <input type="text" class="form-control mx-auto" name="passcode" style="width:270px;" id="input_passcode" placeholder="{{__('words.passcode')}}" maxlength="4" required>                            
+                                            <div id="inline-keypad" class="mt-2 mx-auto" style="width:270px;"></div>
                                             @error('passcode')
                                                 <span class="text-danger" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -25,7 +25,7 @@
                                             @enderror
                                         </div>
                                         <div class="form-group text-center">
-                                            <button type="submit" class="btn btn-primary mx-auto" style="width:178px;" id="btn-sign-in">{{__('words.submit')}}</button>
+                                            <button type="submit" class="btn btn-primary mx-auto" style="width:270px;" id="btn-sign-in">{{__('words.submit')}}</button>
                                         </div>
                                         </div>
                                     </div>
