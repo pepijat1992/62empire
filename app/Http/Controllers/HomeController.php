@@ -8,7 +8,7 @@ class HomeController extends Controller
 {
     public function index(Request $request) {
         if(is_Mobile()){
-            return view('wap.index');
+            return redirect(route('login'));
         } else {
             return view('web.index');
         }       
