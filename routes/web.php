@@ -203,4 +203,4 @@ Route::group(['prefix' => 'game', 'namespace' => 'Game'],function ($router){
     $router->get('joker_play', 'GameController@joker_play')->name('game.joker.play');
 });
 
-Route::any('api/mega/callback', 'Game\GameController@mega888_callback');
+Route::any('api/mega/callback', 'Game\GameController@mega_callback');

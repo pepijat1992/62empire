@@ -1451,7 +1451,7 @@ class GameController extends Controller
         dd($result);
     } 
     
-    public function mega888_callback(Request $request) {
+    public function mega_callback(Request $request) {
         $data = $request->all();
         $request_data = str_replace("\t", "", $request->getContent());
         $request_data = str_replace("\n", "", $request_data);
