@@ -47,7 +47,7 @@
                 <div id="inline-keypad" class="mx-auto is-keypad" style="width:300px;" readonly="readonly">
                     <div class="keypad-inline">
                         <div class="keypad-row">
-                            <input type="text" class="input-result px-3" name="passcode" id="input_passcode" maxlength="4" value="{{old('passcode')}}" autofocus required>
+                            <input type="text" class="input-result px-3" name="passcode" id="input_passcode" maxlength="4" autofocus required>
                         </div>
                         <div class="keypad-row">                                    
                             <button type="button" class="keypad-special keypad-clear" title="Erase all the text">C</button>

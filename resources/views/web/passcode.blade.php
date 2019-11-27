@@ -33,7 +33,7 @@
                         <div id="inline-keypad" class="mt-3 mx-auto is-keypad" style="width:300px;">
                             <div class="keypad-inline">
                                 <div class="keypad-row">
-                                    <input type="text" class="input-result w-100" name="passcode" id="input_passcode" autocomplete="off" maxlength="4" value="{{old('passcode')}}" autofocus required>
+                                    <input type="text" class="input-result w-100" name="passcode" id="input_passcode" autocomplete="off" maxlength="4" autofocus required>
                                 </div>
                                 <div class="keypad-row">                                    
                                     <button type="button" class="keypad-special keypad-clear" title="Erase all the text">C</button>
