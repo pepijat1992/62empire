@@ -2,6 +2,21 @@
 @section('style')    
     <link rel="stylesheet" href="{{asset('web/plugins/keypad/css/jquery.keypad.css')}}">
     <style>
+        body{
+            background: #010101;
+            height: 100vh;
+        }
+        #app {
+            height: unset;
+            background: #010101;
+        }
+        .keypad-inline {
+            border: none;
+            margin-top: 45%;
+        }
+        header, footer, .sidebar_social{
+            display: none;
+        }
         .input-result {
             background: none;
             color: white;
@@ -23,17 +38,16 @@
     </style>
 @endsection
 @section('content')
-    <div id="content" class="mt-5 mb-5">
+    <div id="content" class="mb-5">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-6 text-center">
                     <form method="POST" action="{{route('post_check_passcode')}}" id="login_form">
                         @csrf
-                        <h3 class="text-center">{{__('words.check_passcode')}}</h3>
                         <div id="inline-keypad" class="mt-3 mx-auto is-keypad" style="width:300px;">
                             <div class="keypad-inline">
                                 <div class="keypad-row">
-                                    <input type="text" class="input-result w-100" name="passcode" id="input_passcode" autocomplete="off" maxlength="4" autofocus required>
+                                    <input type="text" class="input-result w-100 px-3" name="passcode" id="input_passcode" autocomplete="off" maxlength="4" autofocus required>
                                 </div>
                                 <div class="keypad-row">                                    
                                     <button type="button" class="keypad-special keypad-clear" title="Erase all the text">C</button>
@@ -75,4 +89,9 @@
 
 @section('script')
     <script src="{{asset('web/js/calculator.js')}}"></script>
+    <script>
+        $(document).ready(function(){
+            $(".input-result").focus();
+        });
+    </script>
 @endsection
