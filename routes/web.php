@@ -189,7 +189,7 @@ Route::group(['prefix' => 'game', 'namespace' => 'Game'],function ($router){
 
     $router->get('xe88', 'GameController@xe88')->name('game.xe88.index');
     $router->get('xe88_play', 'GameController@xe88_play')->name('game.xe88.play');
-    $router->any('mega/callback', 'ApiController@mega_callback')->name('game.mega.callback');
+    $router->any('mega/callback', 'ApiController@mega888_callback')->name('game.mega.callback');
     $router->get('mega888', 'GameController@mega888')->name('game.mega.index');
     $router->get('mega888_play', 'GameController@mega888_play')->name('game.mega888.play');
     $router->get('mega888_player_info', 'GameController@mega888_player_info')->name('game.mega888.player.info');
@@ -203,4 +203,4 @@ Route::group(['prefix' => 'game', 'namespace' => 'Game'],function ($router){
     $router->get('joker_play', 'GameController@joker_play')->name('game.joker.play');
 });
 
-Route::any('api/mega/callback', 'Game\GameController@mega_callback');
+Route::any('api/mega/callback', 'Game\GameController@mega888_callback');
