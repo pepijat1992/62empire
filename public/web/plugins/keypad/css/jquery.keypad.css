@@ -67,8 +67,8 @@ img.keypad-trigger {
 .keypad-key, .keypad-special {
 	margin: 0.125em;
 	padding: 0em;
-	width: 52px;
-	height: 52px;
+	width: 60px;
+	height: 60px;
 	background-color: #333333;
 	color: white;
 	font-size: 35px;
@@ -115,8 +115,6 @@ img.keypad-trigger {
 button:focus {
 	outline: none !important;
 }
-
-
 .keypad-operator {
 	background-color: #ffa02c;
 }

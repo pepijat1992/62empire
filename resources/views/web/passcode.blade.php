@@ -30,7 +30,7 @@
                     <form method="POST" action="{{route('post_check_passcode')}}" id="login_form">
                         @csrf
                         <h3 class="text-center">{{__('words.check_passcode')}}</h3>
-                        <div id="inline-keypad" class="mt-3 mx-auto is-keypad" style="width:270px;">
+                        <div id="inline-keypad" class="mt-3 mx-auto is-keypad" style="width:300px;">
                             <div class="keypad-inline">
                                 <div class="keypad-row">
                                     <input type="text" class="input-result w-100" name="passcode" id="input_passcode" autocomplete="off" maxlength="4" value="{{old('passcode')}}" autofocus required>
@@ -60,8 +60,8 @@
                                     <button type="button" class="keypad-special keypad-operator" title="Erase the previous character">+</button>
                                 </div>
                                 <div class="keypad-row">
-                                    <button type="button" class="keypad-key" style="width:117px">0</button>
-                                    <button type="submit" class="keypad-special btn-submit" style="width:117px;font-size:25px !important;">{{__('words.submit')}}</button>
+                                    <button type="button" class="keypad-key" style="width:130px">0</button>
+                                    <button type="submit" class="keypad-special btn-submit" style="width:130px;font-size:25px !important;">{{__('words.submit')}}</button>
                                 </div>
                             </div>
                         </div>
