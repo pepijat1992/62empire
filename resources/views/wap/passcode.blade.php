@@ -6,13 +6,10 @@
             border: solid 8px #007bff;
         }
         .navbar{
-            border: solid 8px #007bff;
-            border-bottom: none;
+            display: none;
         }
         .footer-nav{
-            border: solid 8px #007bff;
-            border-top: none;
-            height: 64px;
+            display: none;
         }
         .input-result {
             background: none;
@@ -38,7 +35,6 @@
             <div class="wrap-content">
                 <form method="POST" action="{{route('post_check_passcode')}}" id="login_form">
                     @csrf
-                    <h2 class="text-center">{{__('words.check_passcode')}}</h2>
                     <div id="inline-keypad" class="mt-3 mx-auto is-keypad" style="width:270px;" readonly="readonly">
                         <div class="keypad-inline">
                             <div class="keypad-row">
