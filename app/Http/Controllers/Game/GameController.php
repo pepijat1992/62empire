@@ -1453,16 +1453,16 @@ class GameController extends Controller
     
     public function mega888_callback(Request $request) {
         $data = $request->all();
-
-        $filename = storage_path() . '\\datalogs\\datalogs.log';        
-        if ($handle = fopen($filename, 'a')) {
-            fwrite($handle, json_encode($data) . " \n");
-            fclose($handle);
-        }
-
         $request_data = str_replace("\t", "", $request->getContent());
         $request_data = str_replace("\n", "", $request_data);
         $request_data = substr($request_data, 5);
+        
+        $filename = storage_path() . '\\datalogs\\datalogs.log';        
+        if ($handle = fopen($filename, 'a')) {
+            fwrite($handle, $request_data . " \n");
+            fclose($handle);
+        }
+
         $data = json_decode($request_data, true);
         if(is_array($data) && $data['method'] == 'open.operator.user.login') {
             $loginId = $data['params']['loginId'];
