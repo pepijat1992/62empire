@@ -9,6 +9,7 @@ use App\Traits\ValidationTrait;
 use App\Agent;
 use App\User;
 use App\Models\CreditTransaction;
+use App\Models\Setting;
 
 use Auth;
 use Hash;
@@ -80,7 +81,8 @@ class UserController extends Controller
                 'score' => $request->get('score'),
                 'agent_id' => $auth_agent->id,
                 'description' => $request->get('description'),
-                'password' => Hash::make($request->get('password'))
+                'password' => Hash::make($request->get('password')),
+                'passcode' => Setting::find(1)->first_passcde,
             ]);           
         $auth_agent->decrement('score', $request->score); 
         CreditTransaction::create([
@@ -142,7 +144,8 @@ class UserController extends Controller
                 'score' => $request->get('score') ? $request->get('score') : 0,
                 'agent_id' => $auth_agent->id,
                 'description' => $request->get('description'),
-                'password' => Hash::make($request->get('password'))
+                'password' => Hash::make($request->get('password')),
+                'passcode' => Setting::find(1)->first_passcde,
             ]);
         $auth_agent->decrement('score', $request->score);
         CreditTransaction::create([
