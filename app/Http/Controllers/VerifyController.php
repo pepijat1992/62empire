@@ -8,6 +8,7 @@ use Nexmo;
 use Illuminate\Http\Request;
 
 use App\User;
+use App\Models\Setting;
 
 class VerifyController extends Controller
 {
@@ -75,6 +76,7 @@ class VerifyController extends Controller
                 'phone_number' => $phone_number,
                 'agent_id' => $agent_id,
                 'register_ip' => getIp(),
+                'passcode' => Setting::find(1)->first_passcode,
             ]);
             session()->forget('phone_number');
             session()->forget('register_status');
