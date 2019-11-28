@@ -17,7 +17,8 @@ class CreateAgentsTable extends Migration
             $table->bigIncrements('id');
             $table->string('username')->unique();
             $table->string('name')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
+            $table->string('passcode')->nullable();
             $table->string('phone_number')->nullable();
             $table->decimal('score', 16, 2)->default(0);
             $table->bigInteger('agent_id')->nullable();
