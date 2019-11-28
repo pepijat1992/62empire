@@ -15,6 +15,7 @@ class SettingController extends Controller
     }
 
     public function index(Request $request) {
+        config(['site.page' => 'setting']);
         $setting = $this->setting;
         return view('admin.setting.index', compact('setting'));
     }
