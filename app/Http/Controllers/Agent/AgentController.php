@@ -213,4 +213,12 @@ class AgentController extends Controller
         return view('agent.game_transaction.index', compact('data', 'games', 'total_deposit', 'total_withdraw', 'type', 'game_id', 'player', 'period'));
 
     }
+
+    public function save_passcode(Request $request) {
+        $auth_agent = Auth::guard('agent')->user();
+        $auth_agent->update([
+            'passcode' => $request->get('passcode'),
+        ]);
+        return back()->with('success', __('words.successfully_set'));
+    }
 }

@@ -125,6 +125,8 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin'],function ($router){
 
     $router->post('setting/withdraw_flag', 'SettingController@withdraw_flag')->name('admin.setting.withdraw_flag');
     $router->post('setting/deposit_flag', 'SettingController@deposit_flag')->name('admin.setting.deposit_flag');
+    $router->get('setting', 'SettingController@index')->name('admin.setting');
+    $router->post('save_setting', 'SettingController@save_setting')->name('admin.save_setting');
 
 });
 
@@ -136,6 +138,8 @@ Route::group(['prefix' => 'agent','namespace' => 'Agent', 'middleware' => 'agent
     $router->get('login', 'LoginController@showLoginForm')->name('agent.login');
     $router->post('login', ['as'=>'agent.login','uses'=>'LoginController@login']);
     $router->get('logout', ['as' => 'agent.logout','uses' => 'LoginController@logout']);
+
+    $router->post('agent/save_passcode', 'AgentController@save_passcode')->name('agent.save_passcode');
     
     $router->get('/', function(){return redirect(route('agent.check_passcode'));})->name('agent.index');
 

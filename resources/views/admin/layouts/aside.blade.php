@@ -51,6 +51,7 @@
                         <li class="@if($page == 'bank') mm-active @endif"><a href="{{route('admin.bank.index')}}">{{__('words.bank')}}</a></li>
                         <li class="@if($page == 'game') mm-active @endif"><a href="{{route('admin.game.index')}}">{{__('words.games')}}</a></li>
                         <li class="@if($page == 'promotion') mm-active @endif"><a href="{{route('promotion.index')}}">{{__('words.promotion')}}</a></li>
+                        <li class="@if($page == 'setting') mm-active @endif"><a href="{{route('admin.setting')}}">{{__('words.setting')}}</a></li>
                     </ul>
                 </li>
             </ul>

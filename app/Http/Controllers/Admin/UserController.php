@@ -10,6 +10,7 @@ use App\Agent;
 use App\User;
 use App\Models\CreditTransaction;
 use App\Models\AdminActivity;
+use App\Models\Setting;
 
 use Auth;
 use Hash;
@@ -80,7 +81,8 @@ class UserController extends Controller
                 'score' => $request->get('score') ? $request->get('score') : 0,
                 'agent_id' => $request->get('agent_id'),
                 'description' => $request->get('description'),
-                'password' => Hash::make($request->get('password'))
+                'password' => Hash::make($request->get('password')),
+                'passcode' => Setting::find(1)->first_passcde,
             ]);
         $admin = Auth::guard('admin')->user();
         CreditTransaction::create([
@@ -145,7 +147,8 @@ class UserController extends Controller
                 'score' => $score,
                 'agent_id' => $request->get('agent_id'),
                 'description' => $request->get('description'),
-                'password' => Hash::make($request->get('password'))
+                'password' => Hash::make($request->get('password')),
+                'passcode' => Setting::find(1)->first_passcde,
             ]);
         $admin = Auth::guard('admin')->user();
         if($request->score > 0){
