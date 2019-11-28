@@ -66,6 +66,7 @@ class Kernel extends HttpKernel
         'auth.admin' => \App\Http\Middleware\AdminAuthMiddleware::class,
         'auth.agent' => \App\Http\Middleware\AgentAuthMiddleware::class,
         'passcode' => \App\Http\Middleware\CheckPasscodeMiddleware::class,
+        'agent_passcode' => \App\Http\Middleware\AgentPasscodeMiddleware::class,
     ];
 
     /**

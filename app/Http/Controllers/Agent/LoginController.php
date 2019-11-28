@@ -7,6 +7,8 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Auth;
 
+use App\Agent;
+
 class LoginController extends Controller
 {
     /*
@@ -62,6 +64,7 @@ class LoginController extends Controller
     public function logout()
     {
         Auth::guard('agent')->logout();
+        session()->forget('agent_passcode');
         return redirect()->guest('agent/login');
     }
 
@@ -69,4 +72,23 @@ class LoginController extends Controller
     {
         return 'username';
     }
+
+    public function check_passcode(Request $request) {
+        return view('agent.passcode');
+    }
+
+    public function post_check_passcode(Request $request) {
+        $request->validate([
+            'passcode' => 'required|digits:4',
+        ]);
+
+        $users = Agent::where('passcode', $request->get('passcode'))->get();
+        if($users->isNotEmpty()){
+            $request->session()->put('agent_passcode', $request->get('passcode'));
+            return redirect(route('agent.login')); 
+        } else {
+            return back()->withErrors(['passcode' => 'Incorrect passcode']);
+        }        
+    }
+
 }
