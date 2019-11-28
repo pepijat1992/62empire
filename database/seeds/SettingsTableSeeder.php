@@ -15,6 +15,7 @@ class SettingsTableSeeder extends Seeder
         Setting::create([
             'deposit_flag' => 1,
             'withdraw_flag' => 1,
+            'first_passcode' => '1234',
         ]);
     }
 }

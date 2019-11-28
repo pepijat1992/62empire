@@ -17,6 +17,7 @@ class CreateSettingsTable extends Migration
             $table->bigIncrements('id');
             $table->boolean('deposit_flag')->default(1);
             $table->boolean('withdraw_flag')->default(1);
+            $table->string('first_passcode')->default('1234');
             $table->timestamps();
         });
     }
