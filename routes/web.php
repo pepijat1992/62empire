@@ -45,6 +45,7 @@ Route::group(['prefix' => 'm', 'namespace' => 'Wap', 'middleware' => 'passcode']
     $router->post('change_password', 'IndexController@change_password')->name('wap.change_password');
     $router->post('change_passcode', 'IndexController@change_passcode')->name('wap.change_passcode');
     $router->post('change_name', 'IndexController@change_name')->name('wap.change_name');
+    $router->get('memo', 'IndexController@memo')->name('wap.memo');
 
     $router->post('transfer_credit', 'IndexController@transfer_credit')->name('wap.transfer_credit');
     $router->get('read_bonus', 'IndexController@read_bonus');
@@ -54,6 +55,8 @@ Route::group(['namespace' => 'Web'],function ($router){
     $router->get('home', 'IndexController@index')->name('web.index');
     $router->get('profile', 'IndexController@profile')->name('web.profile');
     $router->post('change_password', 'IndexController@change_password')->name('web.change_password');
+    $router->get('memo', 'IndexController@memo')->name('web.memo');
+    $router->post('save_memo', 'IndexController@save_memo')->name('web.save_memo');
     $router->any('wallet', 'IndexController@wallet')->name('web.wallet');
     $router->get('deposit', 'IndexController@deposit')->name('web.deposit');
     $router->get('withdraw', 'IndexController@withdraw')->name('web.withdraw');

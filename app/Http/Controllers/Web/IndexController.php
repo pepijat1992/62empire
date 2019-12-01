@@ -11,9 +11,11 @@ use App\Models\Setting;
 use App\Models\CreditTransaction;
 use App\Models\BankAccount;
 use App\Models\Bank;
+use App\Models\Memo;
 
 use Auth;
 use Hash;
+use DB;
 
 class IndexController extends Controller
 {
@@ -100,6 +102,35 @@ class IndexController extends Controller
         ]);
 
         return back()->with('success', __('words.successfully_set'));
+    }
+
+    public function memo(Request $request) {
+        config(['site.page' => 'memo']);
+        if(!Auth::user()->memo) {
+            Memo::create([
+                'user_id' => Auth::user()->id,
+            ]);
+        }
+        return view('web.profile');
+    }
+
+    public function save_memo(Request $request) {
+        $auth_user = Auth::user();
+
+        DB::transaction(function () use($auth_user, $request) {
+            if(!$auth_user->memo) {
+                Memo::create([
+                    'user_id' => $auth_user->id,
+                    'content' => $request->get('content'),
+                ]);
+            } else {
+                $auth_user->memo->update([
+                    'content' => $request->get('content'),
+                ]);
+            }            
+        });
+
+        return back()->with('success', __('words.updated_successfully'));
     }
 
 }

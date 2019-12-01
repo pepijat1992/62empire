@@ -15,6 +15,7 @@ use App\Models\Game;
 use App\Models\GameUser;
 use App\Models\Setting;
 use App\Models\Promotion;
+use App\Models\Memo;
 
 use Auth;
 use Hash;
@@ -257,6 +258,11 @@ class IndexController extends Controller
             'status' => 1,
         ]);
         echo "success";
+    }
+
+    public function memo(Request $request) {
+        config(['site.wap_footer' => 'me']);
+        return view('wap.memo');
     }
 
 }

@@ -66,4 +66,7 @@ class User extends Authenticatable
     public function free_bonuses(){
         return $this->hasMany('App\Models\FreeBonus');
     }
+    public function memo(){
+        return $this->hasOne('App\Models\Memo');
+    }
 }

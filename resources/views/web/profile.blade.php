@@ -1,5 +1,7 @@
 @extends('web.layouts.master')
-@section('style')
+@section('style')    
+    {{-- <link href="{{asset('backend/plugins/summernote/summernote.css')}}" rel="stylesheet">
+    <link href="{{asset('backend/plugins/summernote/summernote-bs4.css')}}" rel="stylesheet">  --}}
     <style>
         #btn-change-name {
             color: white;
@@ -12,6 +14,11 @@
         .value {
             font-size: 15px;
             font-weight: 600;
+        }
+        #memo_content {
+            background: none;
+            border: solid 1px white;
+            color: white;
         }
     </style>
 @endsection
@@ -30,6 +37,7 @@
                                 <ul role="tab" class="nav nav-tabs">
                                     <li class="nav-item"><a data-toggle="tab" href="#myprofile" role="tab" class="nav-link active" aria-selected="true"><h5>{{__('words.my_profile')}}</h5></a></li>
                                     <li class="nav-item"><a data-toggle="tab" href="#changepassword" role="tab" class="nav-link" aria-selected="false"><h5>{{__('words.change_password')}}</h5></a></li>
+                                    <li class="nav-item"><a data-toggle="tab" href="#memo" role="tab" class="nav-link" aria-selected="false"><h5>{{__('words.memo')}}</h5></a></li>
                                 </ul>
                                 <div class="tab-content pt-5 pl-3 pr-3 pb-5">
                                     <div id="myprofile" role="tabpanel" class="tab-pane active">
@@ -55,31 +63,36 @@
                                         </div>
                                     </div>
                                     <div id="changepassword" role="tabpanel" class="tab-pane fade">
-                                        <div id="changepassword">
-                                            <form id="changepassword-form" method="POST" action="">
-                                                @csrf
-                                                <div class="form-group row">
-                                                    <label class="col-form-label col-sm-3">{{__('words.new_password')}}</label>
-                                                    <div class="col-auto">
-                                                        <input type="password" name="password" class="form-control" placeholder="{{__('words.new_password')}}" required />
-                                                        <span class="invalid-feedback password_error" role="alert">
-                                                            <strong></strong>
-                                                        </span>
-                                                    </div>
+                                        <form id="changepassword-form" method="POST" action="">
+                                            @csrf
+                                            <div class="form-group row">
+                                                <label class="col-form-label col-sm-3">{{__('words.new_password')}}</label>
+                                                <div class="col-auto">
+                                                    <input type="password" name="password" class="form-control" placeholder="{{__('words.new_password')}}" required />
+                                                    <span class="invalid-feedback password_error" role="alert">
+                                                        <strong></strong>
+                                                    </span>
                                                 </div>
-                                                <div class="form-group row">
-                                                    <label class="col-form-label col-sm-3">{{__('words.confirm_password')}}</label>
-                                                    <div class="col-auto">
-                                                        <input type="password" name="password_confirmation" class="form-control" placeholder="{{__('words.confirm_password')}}" required />
-                                                    </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-form-label col-sm-3">{{__('words.confirm_password')}}</label>
+                                                <div class="col-auto">
+                                                    <input type="password" name="password_confirmation" class="form-control" placeholder="{{__('words.confirm_password')}}" required />
                                                 </div>
-                                                <div class="line my-3"></div>
-                                                <div class="offset-3 pl-2">
-                                                    <button type="reset" class="btn btn-danger mr-3"><i class="fa fa-eraser mr-2"></i>{{__('words.reset')}}</button>
-                                                    <button type="button" class="btn btn-primary btn-submit"><i class="fa fa-save mr-2"></i>{{__('words.save')}}</button>
-                                                </div>
-                                            </form>
-                                        </div>
+                                            </div>
+                                            <div class="line my-3"></div>
+                                            <div class="offset-3 pl-2">
+                                                <button type="reset" class="btn btn-danger mr-3"><i class="fa fa-eraser mr-2"></i>{{__('words.reset')}}</button>
+                                                <button type="button" class="btn btn-primary btn-submit"><i class="fa fa-save mr-2"></i>{{__('words.save')}}</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div id="memo" role="tabpanel" class="tab-pane fade">
+                                        <form action="{{route('web.save_memo')}}" method="post">
+                                            @csrf
+                                            <textarea name="content" id="memo_content" class="form-control" rows="10">{{$_user->memo->content ?? ''}}</textarea>
+                                            <button type="submit" class="btn btn-primary btn-block mt-3">{{__('words.save')}}</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -151,6 +164,8 @@
 
 
 @section('script')
+    {{-- <script src="{{asset('backend/plugins/summernote/summernote.min.js')}}"></script>
+    <script src="{{asset('backend/plugins/summernote/summernote-bs4.min.js')}}"></script> --}}
     <script>
         $(document).ready(function(){
             $("#changepassword-form .btn-submit").click(function () {  
@@ -243,9 +258,7 @@
                         swal("{{__('words.something_went_wrong')}}", '', 'error')
                     }
                 });
-            });
-
-            
+            });            
             
             $("#change_passcode_form .btn-submit").click(function () {                
                 $.ajax({
@@ -285,6 +298,8 @@
                     }
                 });
             });
+
+            // $("#memo_content").summernote();
         });
     </script>
 @endsection

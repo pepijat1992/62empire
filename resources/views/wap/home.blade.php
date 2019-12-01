@@ -26,11 +26,6 @@
                     <h5><a href=""><img src="{{asset('wap/images/icons/aside_6.png')}}" alt="">&nbsp;&nbsp;{{__('words.withdraw_history')}}</a></h5>
                 </div>
             </div> --}}
-            {{-- <div class="col-12 px-2 mt-2">
-                <div class="content b-shadow">
-                    <h5><a href="" class="d-block"><img src="{{asset('wap/images/icons/aside_6.png')}}" alt="">&nbsp;&nbsp;{{__('words.game_records')}}</a></h5>
-                </div>
-            </div> --}}
             <div class="col-12 px-2 mt-2">
                 <div class="content b-shadow">
                     <h5><a href="http://bit.ly/2XdrVz4" target="_blank" class="d-block"><img src="{{asset('wap/images/icons/aside_10.png')}}" alt="">&nbsp;&nbsp;{{__('words.customer_service')}}</a></h5>
@@ -39,6 +34,11 @@
             <div class="col-12 px-2 mt-2">
                 <div class="content b-shadow">
                     <h5><a href="{{route('wap.setting')}}" class="d-block"><img src="{{asset('wap/images/icons/aside_6.png')}}" alt="">&nbsp;&nbsp;{{__('words.setting')}}</a></h5>
+                </div>
+            </div>
+            <div class="col-12 px-2 mt-2">
+                <div class="content b-shadow">
+                    <h5><a href="{{route('wap.memo')}}" class="d-block"><img src="{{asset('wap/images/icons/aside_7.png')}}" alt="">&nbsp;&nbsp;{{__('words.memo')}}</a></h5>
                 </div>
             </div>
         </div>

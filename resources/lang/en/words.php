@@ -271,5 +271,6 @@
         'instruction' => 'Instruction',
         'passcode' => 'Passcode',
         'check_passcode' => 'Check Passcode',
+        'memo' => 'Memo',
         
     ];
