@@ -29,7 +29,7 @@
         <div class="d-flex align-items-center justify-content-center text-center h-100vh">
             <div class="form-wrapper mx-auto">
                 <div class="form-container">
-                    <a href="{{url('/')}}"><img src="{{asset('images/logo.png')}}" width="200px" alt=""></a>
+                    <a href="{{url('/')}}"><img src="{{asset('images/logo.png')}}" width="230" style="margin-bottom:15px;" alt=""></a>
                     @yield('content')
                 </div>
             </div>

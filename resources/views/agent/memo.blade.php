@@ -24,7 +24,7 @@
             <div class="col-md-10 col-lg-8">
                 <form action="{{route('agent.save_memo')}}" method="post">
                     @csrf
-                    <textarea name="content" id="memo_content" class="form-control" rows="20">{{$_user->memo->content ?? ''}}</textarea>
+                    <textarea name="content" id="memo_content" class="form-control" rows="20">{{$_agent->memo->content ?? ''}}</textarea>
                     <button type="submit" class="btn btn-primary btn-block mt-3">{{__('words.save')}}</button>
                 </form>
             </div>
