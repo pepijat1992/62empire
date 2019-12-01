@@ -11,6 +11,7 @@ use App\Models\CreditTransaction;
 use App\Models\GameTransaction;
 use App\Models\Game;
 use App\Models\GameUser;
+use App\Models\Memo;
 
 use Auth;
 use Hash;
@@ -220,5 +221,27 @@ class AgentController extends Controller
             'passcode' => $request->get('passcode'),
         ]);
         return back()->with('success', __('words.successfully_set'));
+    }
+
+    public function memo(Request $request) {
+        config(['site.page' => 'memo']);
+        return view('agent.memo');
+    }
+
+    public function save_memo(Request $request) {
+        $auth_agent = Auth::guard('agent')->user();
+
+        if(!$auth_agent->memo) {
+            Memo::create([
+                'agent_id' => $auth_agent->id,
+                'content' => $request->get('content'),
+            ]);
+        } else {
+            $auth_agent->memo->update([
+                'content' => $request->get('content'),
+            ]);
+        }
+
+        return back()->with('success', __('words.updated_successfully'));
     }
 }

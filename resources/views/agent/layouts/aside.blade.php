@@ -37,6 +37,7 @@
 
                 <li class="@if($page == 'game_account') mm-active @endif"><a href="{{route('agent.game_account.index')}}"><i class="fas fa-user-secret mr-2"></i>&nbsp;&nbsp;{{__('words.game_accounts')}}</a></li>        
                 <li class="@if($page == 'game_transaction') mm-active @endif"><a href="{{route('agent.game_transaction')}}"><i class="fas fa-history mr-2"></i>&nbsp;&nbsp;{{__('words.transaction_history')}}</a></li>
+                <li class="@if($page == 'memo') mm-active @endif"><a href="{{route('agent.memo')}}"><i class="fas fa-file mr-2"></i>&nbsp;&nbsp;{{__('words.memo')}}</a></li>
 
             </ul>
         </nav>

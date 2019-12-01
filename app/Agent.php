@@ -32,4 +32,8 @@ class Agent extends Authenticatable
         return $this->hasMany('App\Models\GameRecord');
     }
 
+    public function memo() {
+        return $this->hasOne('App\Models\Memo');
+    }
+
 }

@@ -185,7 +185,8 @@ Route::group(['prefix' => 'agent','namespace' => 'Agent', 'middleware' => 'agent
 
     $router->any('report/agent/{id}', 'ReportController@agent_report')->name('agent.report.agent');
     $router->any('report/user/{id}', 'ReportController@user_report')->name('agent.report.user');
-    
+    $router->get('memo', 'AgentController@memo')->name('agent.memo');   
+    $router->post('save_memo', 'AgentController@save_memo')->name('agent.save_memo');   
 
 });
 

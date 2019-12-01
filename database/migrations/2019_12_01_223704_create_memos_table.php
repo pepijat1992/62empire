@@ -16,6 +16,7 @@ class CreateMemosTable extends Migration
         Schema::create('memos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id')->nullable();
+            $table->integer('agent_id')->nullable();
             $table->text('content')->nullable();
             $table->timestamps();
         });
