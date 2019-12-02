@@ -21,7 +21,7 @@
                     <button class="btn btn-sm btn-primary btn-block" id="btn-add-user">{{__('words.add_player')}}</button>
                 </div>
                 <div class="col-6">
-                    <button class="btn btn-sm btn-info btn-block">{{__('words.total_report')}}</button>
+                    <a href="{{route('agent.memo')}}" class="btn btn-sm btn-info btn-block">{{__('words.memo')}}</button>
                 </div>
             </div>
             <form action="" class="" method="post">
