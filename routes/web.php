@@ -144,7 +144,7 @@ Route::group(['prefix' => 'agent','namespace' => 'Agent', 'middleware' => 'agent
 
     $router->post('agent/save_passcode', 'AgentController@save_passcode')->name('agent.save_passcode');
     
-    $router->get('/', function(){return redirect(route('agent.check_passcode'));})->name('agent.index');
+    $router->get('/', 'LoginController@check_passcode')->name('agent.index');
 
     $router->any('wap/index', 'WapController@index')->name('agent.wap.index');
     $router->any('wap/player_transfer/{id}', 'WapController@player_transfer')->name('agent.wap.player_transfer');
