@@ -134,10 +134,10 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function ($router){
 });
 
 
+Route::get('agent', 'Agent\LoginController@check_passcode')->name('agent.index');
 
 Route::group(['prefix' => 'agent','namespace' => 'Agent'],function ($router){
     
-    $router->get('/', 'LoginController@check_passcode')->name('agent.index');
     
     $router->get('check_passcode', 'LoginController@check_passcode')->name('agent.check_passcode');
     $router->post('post_check_passcode', 'LoginController@post_check_passcode')->name('agent.post_check_passcode');
