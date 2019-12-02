@@ -137,6 +137,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function ($router){
 
 Route::group(['prefix' => 'agent','namespace' => 'Agent'],function ($router){
     
+    $router->get('/', 'LoginController@check_passcode')->name('agent.index');
+    
     $router->get('check_passcode', 'LoginController@check_passcode')->name('agent.check_passcode');
     $router->post('post_check_passcode', 'LoginController@post_check_passcode')->name('agent.post_check_passcode');
 
@@ -146,7 +148,6 @@ Route::group(['prefix' => 'agent','namespace' => 'Agent'],function ($router){
 
     $router->post('agent/save_passcode', 'AgentController@save_passcode')->name('agent.save_passcode');
     
-    $router->get('/', 'LoginController@check_passcode')->name('agent.index');
 
     $router->any('wap/index', 'WapController@index')->name('agent.wap.index');
     $router->any('wap/player_transfer/{id}', 'WapController@player_transfer')->name('agent.wap.player_transfer');
