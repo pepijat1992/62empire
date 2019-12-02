@@ -68,7 +68,7 @@ Route::group(['namespace' => 'Web'],function ($router){
     $router->get('promotion', 'GameController@promotion')->name('web.promotion');
 });
 
-Route::group(['prefix' => 'admin1', 'namespace' => 'Admin'], function ($router){
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function ($router){
     $router->get('/', 'LoginController@showLoginForm')->name('admin.index');
 
     $router->get('login', 'LoginController@showLoginForm')->name('admin.login');
@@ -135,7 +135,7 @@ Route::group(['prefix' => 'admin1', 'namespace' => 'Admin'], function ($router){
 
 
 
-Route::group(['prefix' => 'agent1','namespace' => 'Agent'],function ($router){
+Route::group(['prefix' => 'agent','namespace' => 'Agent'],function ($router){
     
     $router->get('/', 'LoginController@check_passcode')->name('agent.index');
     
