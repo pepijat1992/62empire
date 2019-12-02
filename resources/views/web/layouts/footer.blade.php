@@ -63,35 +63,3 @@
         </div>
     </div>
 </footer>
-<ul class="nav fixed-bottom text-center d-sm-none">
-    <li class="nav-item flex-fill h4 m-auto">
-        <a href="{{route('wap.index')}}">
-            <i class="fa fa-home"></i>
-            <p class="h6">{{__('words.home')}}</p>
-        </a>
-    </li>
-    <li class="nav-item flex-fill h4 m-auto">
-        <a href="{{route('wap.online_deposit')}}">
-            <i class="fa fa-arrow-circle-o-down"></i>
-            <p class="h6">{{__('words.deposit')}}</p>
-        </a>
-    </li>
-    <li class="nav-item flex-fill rounded-circle h2 active nav-item-wallet">
-        <a href="{{route('wap.wallet')}}">
-            <i class="fa fa-dollar"></i>
-            <p class="h5">{{__('words.wallet')}}</p>
-        </a>
-    </li>
-    <li class="nav-item flex-fill h4 m-auto">
-        <a href="{{route('wap.online_withdraw')}}">
-            <i class="fa fa-arrow-circle-o-up"></i>
-            <p class="h6">{{__('words.withdraw')}}</p>
-        </a>
-    </li>
-    <li class="nav-item flex-fill h4 m-auto">
-        <a href="{{route('web.promotion')}}">
-            <i class="fa fa-gift"></i>
-            <p class="h6">{{__('words.promotion')}}</p>
-        </a>
-    </li>
-</ul>
