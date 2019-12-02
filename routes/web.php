@@ -134,17 +134,19 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function ($router){
 });
 
 
-$router->get('agent/check_passcode', 'Agent\LoginController@check_passcode')->name('agent.check_passcode');
-$router->post('agent/post_check_passcode', 'Agent\LoginController@post_check_passcode')->name('agent.post_check_passcode');
 
-Route::group(['prefix' => 'agent','namespace' => 'Agent', 'middleware' => 'agent_passcode'],function ($router){
+Route::group(['prefix' => 'agent','namespace' => 'Agent'],function ($router){
+    
+    $router->get('check_passcode', 'LoginController@check_passcode')->name('agent.check_passcode');
+    $router->post('post_check_passcode', 'LoginController@post_check_passcode')->name('agent.post_check_passcode');
+
     $router->get('login', 'LoginController@showLoginForm')->name('agent.login');
     $router->post('login', ['as'=>'agent.login','uses'=>'LoginController@login']);
     $router->get('logout', ['as' => 'agent.logout','uses' => 'LoginController@logout']);
 
     $router->post('agent/save_passcode', 'AgentController@save_passcode')->name('agent.save_passcode');
     
-    $router->get('/', function(){return redirect(route('agent.check_passcode'));})->name('agent.index');
+    $router->get('/', 'LoginController@check_passcode')->name('agent.index');
 
     $router->any('wap/index', 'WapController@index')->name('agent.wap.index');
     $router->any('wap/player_transfer/{id}', 'WapController@player_transfer')->name('agent.wap.player_transfer');
