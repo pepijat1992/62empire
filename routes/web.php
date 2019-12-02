@@ -68,12 +68,12 @@ Route::group(['namespace' => 'Web'],function ($router){
     $router->get('promotion', 'GameController@promotion')->name('web.promotion');
 });
 
-Route::group(['prefix' => '/admin','namespace' => 'Admin'],function ($router){
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function ($router){
+    $router->get('/', 'LoginController@showLoginForm')->name('admin.index');
+
     $router->get('login', 'LoginController@showLoginForm')->name('admin.login');
     $router->post('login', ['as'=>'admin.login','uses'=>'LoginController@login']);
     $router->get('logout', ['as' => 'admin.logout','uses' => 'LoginController@logout']);
-
-    $router->get('/', function(){return redirect(route('admin.login'));})->name('admin.index');
 
     $router->get('dashboard', 'AdminController@index')->name('admin.home');
     $router->get('change_password', function(){return view('admin.change_password');})->name('admin.change_password');
