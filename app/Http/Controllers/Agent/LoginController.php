@@ -65,7 +65,7 @@ class LoginController extends Controller
     {
         Auth::guard('agent')->logout();
         session()->forget('agent_passcode');
-        return redirect()->guest('agent/login');
+        return redirect()->guest('agent');
     }
 
     public function username()
