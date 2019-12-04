@@ -71,12 +71,19 @@ class UserController extends Controller
         if ($validator->fails()) {
             $messages = $validator->messages()->toArray();
             return responseWrong($messages);
+        }   
+
+        $phone_number = $request->get('phone_number');
+        $prefix_number = env('PREFIX_NUMBER');
+
+        if(substr($phone_number, 0, 3) != $prefix_number){
+            $phone_number = $prefix_number . $phone_number;
         }
         
         $agent = Agent::create([
                 'username' => $request->get('username'),
                 'name' => $request->get('name'),
-                'phone_number' => $request->get('phone_number'),
+                'phone_number' => $phone_number,
                 'rate' => $request->get('rate') ? $request->get('rate') : 0,
                 'score' => $request->get('score') ? $request->get('score') : 0,
                 'agent_id' => $request->get('agent_id'),
@@ -140,10 +147,18 @@ class UserController extends Controller
             return responseWrong($messages);
         }
         $score = $request->get('score') ? $request->get('score') : 0;
+            
+        $phone_number = $request->get('phone_number');
+        $prefix_number = env('PREFIX_NUMBER');
+
+        if(substr($phone_number, 0, 3) != $prefix_number){
+            $phone_number = $prefix_number . $phone_number;
+        }
+
         $user = User::create([
                 'username' => $request->get('username'),
                 'name' => $request->get('name'),
-                'phone_number' => $request->get('phone_number'),
+                'phone_number' => $phone_number,
                 'score' => $score,
                 'agent_id' => $request->get('agent_id'),
                 'description' => $request->get('description'),
