@@ -37,6 +37,11 @@ Route::group(['prefix' => 'm', 'namespace' => 'Wap', 'middleware' => 'passcode']
     $router->post('online_deposit', 'IndexController@post_online_deposit')->name('wap.post_online_deposit');
     $router->get('online_withdraw', 'IndexController@online_withdraw')->name('wap.online_withdraw');
     $router->post('online_withdraw', 'IndexController@post_online_withdraw')->name('wap.post_online_withdraw');
+
+    $router->any('deposit_history', 'IndexController@deposit_history')->name('wap.deposit_history');
+    $router->any('withdraw_history', 'IndexController@withdraw_history')->name('wap.withdraw_history');
+    $router->any('transfer_history', 'IndexController@transfer_history')->name('wap.transfer_history');
+    
     $router->get('bank_account', 'IndexController@bank_account')->name('wap.bank_account.index');
     $router->post('bank_account/create', 'IndexController@create_bank_account')->name('wap.bank_account.create');
     $router->post('bank_account/edit', 'IndexController@edit_bank_account')->name('wap.bank_account.edit');

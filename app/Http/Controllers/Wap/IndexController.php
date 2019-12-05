@@ -265,4 +265,39 @@ class IndexController extends Controller
         return view('wap.memo');
     }
 
+    public function deposit_history(Request $request) {
+        $auth_user = Auth::user();
+        $data = $auth_user->deposits()->orderBy('hk_at', 'desc')->paginate(10);
+        $total_deposit = $auth_user->deposits()->sum('amount');
+        return view('wap.history.deposit', compact('data', 'total_deposit'));
+    }
+
+    public function withdraw_history(Request $request) {
+        $auth_user = Auth::user();
+        $data = $auth_user->withdraws()->orderBy('hk_at', 'desc')->paginate(10);
+        $total_withdraw = $auth_user->withdraws()->sum('amount');
+        return view('wap.history.withdraw', compact('data', 'total_withdraw'));
+    }
+
+    public function transfer_history(Request $request) {
+        $auth_user = Auth::user();
+        $where_data = [
+            'type' => 'player_agent',
+            'sender_role' => 'user',
+            'sender_id' => $auth_user->id,
+        ];
+        $mod = new CreditTransaction();
+        $mod = $mod->where($where_data);
+        $mod = $mod->orWhere(function($query) use($auth_user){
+            $orwhere_data = [
+                'type' => 'agent_user',
+                'receiver_role' => 'user',
+                'receiver_id' => $auth_user->id,
+            ];
+            return $query->where($orwhere_data);
+        });
+        $data = $mod->orderBy('created_at', 'desc')->paginate(10);
+        return view('wap.history.transfer', compact('data'));
+    }
+
 }
