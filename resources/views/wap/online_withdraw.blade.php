@@ -33,6 +33,9 @@
                         </div>
                         <button type="submit" class="btn btn-primary btn-block mt-4" onclick="show_loading()">{{__('words.submit')}}</button>
                     </form>
+                    <div class="text-center mt-3">
+                        <a href="{{route('wap.withdraw_history')}}"><h4>Withdraw History</h4></a>
+                    </div>
                 </div>
             </div>
         </div>

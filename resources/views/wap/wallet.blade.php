@@ -40,6 +40,7 @@
                     </div>
                 </div>   
                 <div class="modal-footer">
+                    <a href="{{route('wap.transfer_history')}}" class="btn btn-info float-left">{{__('words.history')}}</a>
                     <button type="submit" class="btn btn-primary btn-submit"><i class="fa fa-check mr-1"></i>&nbsp;{{__('words.save')}}</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times mr-1"></i>&nbsp;{{__('words.close')}}</button>
                 </div>

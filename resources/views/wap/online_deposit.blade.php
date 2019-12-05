@@ -68,6 +68,9 @@
                     <button type="submit" class="btn btn-primary btn-block mt-3" onclick="show_loading()">{{__('words.submit')}}</button>
                 </form>
             </div>
+            <div class="col-12 text-center mt-3">
+                <a href="{{route('wap.deposit_history')}}"><h4>Deposit History</h4></a>
+            </div>
         </div>
     </div>
 </div>
