@@ -49,8 +49,10 @@
                                             <div class="col-md-6 text-center">{{__('words.have_not_account')}} <a href="{{route('register')}}" class="text-info">{{__('words.sign_up')}}</a></div>
                                             <div class="col-md-6 text-center"><a href="{{route('login_verification')}}" class="text-light">{{__('words.sign_in_with_verification_code')}}</a></div>
                                         </div>
-                                        <div class="text-center">
-                                            <button type="submit" class="btn btn-primary w-50 my-3 mx-auto" id="btn-sign-in">{{__('words.sign_in')}}</button>
+                                        <div class="row">
+                                            <div class="col-md-8 offset-4">
+                                                <button type="submit" class="btn btn-primary w-50 my-3 mx-auto" id="btn-sign-in"><i class="fa fa-sign-in mr-2"></i> {{__('words.sign_in')}}</button>
+                                            </div>
                                         </div>
                                         <div class="mt-2 text-center">
                                             <a href="{{route('agent.login')}}" class="text-primary font-weight-bold">{{__('words.agent_sign_in')}}</a>
