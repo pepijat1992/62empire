@@ -49,7 +49,14 @@
                                             <tr>
                                                 <td>{{ (($data->currentPage() - 1 ) * $data->perPage() ) + $loop->iteration }}</td>
                                                 <td class="date">{{$item->created_at}}</td>
-                                                <td class="amount">{{$item->amount}}</td>
+                                                <td class="amount">
+                                                    <span class="mr-3">{{$item->amount}}</span>
+                                                    @if($item->type == 'player_agent')
+                                                        Transfer to
+                                                    @elseif($item->type == 'agent_user')
+                                                        Transfer from
+                                                    @endif
+                                                </td>
                                             </tr>
                                         @empty
                                             <tr>

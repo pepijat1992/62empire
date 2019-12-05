@@ -61,7 +61,18 @@ class IndexController extends Controller
             'sender_role' => 'user',
             'sender_id' => $auth_user->id,
         ];
-        $data = CreditTransaction::where($where_data)->orderBy('created_at', 'desc')->paginate(5);
+        $mod = new CreditTransaction();
+        $mod = $mod->where($where_data);
+        $mod = $mod->orWhere(function($query) use($auth_user){
+            $orwhere_data = [
+                'type' => 'agent_user',
+                'receiver_role' => 'user',
+                'receiver_id' => $auth_user->id,
+            ];
+            return $query->where($orwhere_data);
+        });
+        $data = $mod->orderBy('created_at', 'desc')->paginate(5);
+        // $data = CreditTransaction::where($where_data)->orderBy('created_at', 'desc')->paginate(5);
 
         return view('web.wallet.transfer', compact('data'));        
     }
