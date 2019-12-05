@@ -92,7 +92,7 @@
                                     <a href="{{route('web.profile')}}" class="@if($page == 'profile') active @endif">{{__('words.profile')}}</a>
                                 </li>
                                 <li class="d-inline d-md-inline-block">
-                                    <a href="{{route('web.bank_account')}}" class="@if(in_array($page, $wallet_pages)) active @endif">{{__('words.wallet')}}</a>
+                                    <a href="{{route('web.transfer')}}" class="@if(in_array($page, $wallet_pages)) active @endif">{{__('words.wallet')}}</a>
                                 </li>
                             @endauth
 
