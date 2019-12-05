@@ -69,7 +69,7 @@
                                 
                                 <div class="row mt-3">
                                     <div class="col-12 clearfix">
-                                        <h5 class="float-left text-info mt-2">{{__('words.balance')}} :  <span id="balance">{{$game_account->balance}}</span> <i class="fa fa-refresh" id="btn-refresh"></i></h5>
+                                        <h5 class="float-left text-info mt-2">{{__('words.balance')}} :  <span id="game_balance">{{$game_account->balance}}</span> <i class="fa fa-refresh" id="btn-refresh"></i></h5>
                                         <button class="btn btn-info bg-light btn-sm p-0 float-right" data-toggle="modal" data-target="#instructionModal"><img src="{{asset('images/icon_instruction.png')}}" height="28" alt=""></button>
                                     </div>
                                 </div>
