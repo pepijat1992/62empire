@@ -75,7 +75,7 @@
                                 </div>
                                 <div class="keypad-row">
                                     <button type="button" class="keypad-key" style="width:130px">0</button>
-                                    <button type="submit" class="keypad-special btn-submit" style="width:130px;font-size:25px !important;">{{__('words.submit')}}</button>
+                                    <button type="submit" class="keypad-special btn-submit" style="width:130px;font-size:35px !important;">{{__('words.submit')}}</button>
                                 </div>
                             </div>
                         </div>

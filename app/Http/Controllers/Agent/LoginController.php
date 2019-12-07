@@ -52,6 +52,12 @@ class LoginController extends Controller
     {
         if (auth()->guard('agent')->attempt(['username' => $request->username, 'password' => $request->password])) {
             $agent = auth()->guard('agent')->user();
+            $passcode = session('agent_passcode');
+                if($passcode != $user->passcode) {
+                    Auth::guard('agent')->logout();
+                    session()->forget('agent_passcode');
+                    return redirect(route('agent.check_passcode'))->withErrors(['passcode' => 'Invalid Passcode']);
+                }
             $agent->update([
                 'last_login_ip' => $_SERVER['REMOTE_ADDR'],
                 'last_login_at' => date('Y-m-d H:i:s'),

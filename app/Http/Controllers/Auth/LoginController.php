@@ -79,6 +79,11 @@ class LoginController extends Controller
             ]);        
             $phone_number = config('app.prefix_number') . $request->phone_number;
             if ($user = User::where('phone_number', $phone_number)->first()) {
+                $passcode = session('passcode');
+                if($passcode != $user->passcode) {
+                    session()->forget('passcode');
+                    return redirect(route('home'))->withErrors(['passcode' => 'Invalid Passcode']);
+                }
                 $login_ip = getIp();
                 if(filter_var($user->register_ip, FILTER_VALIDATE_IP)){
                     if($user->register_ip != $login_ip){
@@ -117,7 +122,13 @@ class LoginController extends Controller
         } else {
             $phone_number = config('app.prefix_number') . $request->phone_number;
             if (auth()->attempt(['phone_number' => $phone_number, 'password' => $request->password])) {
-                $user = auth()->user();
+                $user = auth()->user();                
+                $passcode = session('passcode');
+                if($passcode != $user->passcode) {
+                    Auth::logout();
+                    session()->forget('passcode');
+                    return redirect(route('home'))->withErrors(['passcode' => 'Invalid Passcode']);
+                }
                 $login_ip = getIp();
                 if(filter_var($user->register_ip, FILTER_VALIDATE_IP)){
                     if($user->register_ip != $login_ip){
