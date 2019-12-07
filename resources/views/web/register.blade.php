@@ -67,8 +67,10 @@
                                         <div class="row mt-3">
                                             <div class="col-md-12 text-center">{{__('words.already_have_account')}} <a href="{{route('login')}}" class="text-info">{{__('words.sign_in')}}</a></div>
                                         </div>
-                                        <div class="text-center">
-                                            <button type="button" class="btn btn-primary w-50 my-3 @if($status != 'verify') disabled @else  @endif" id="btn-sign-up" @if($status != 'verify') disabled @endif>{{__('words.sign_up')}}</button>
+                                        <div class="row">
+                                            <div class="col-md-8 offset-4">
+                                                <button type="button" class="btn btn-primary w-50 my-3 @if($status != 'verify') disabled @else  @endif" id="btn-sign-up" @if($status != 'verify') disabled @endif>{{__('words.sign_up')}}</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
