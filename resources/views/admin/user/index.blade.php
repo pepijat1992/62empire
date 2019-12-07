@@ -50,6 +50,7 @@
                                     <th style="width:40px">#</th>
                                     <th>{{__('words.username')}}</th>
                                     <th>{{__('words.name')}}</th>
+                                    <th>{{__('words.passcode')}}</th>
                                     <th>{{__('words.commission_percentage')}}</th>
                                     <th>{{__('words.score')}}</th>
                                     <th>{{__('words.phone_number')}}</th>
@@ -65,6 +66,7 @@
                                         <td>{{ (($data_agent->currentPage() - 1 ) * $data_agent->perPage() ) + $loop->iteration }}</td>
                                         <td class="username" data-value="{{$item->username}}"><a href="{{route('admin.user.index')}}?agent_id={{$item->id}}">{{$item->username}}</a></td>
                                         <td class="name">{{$item->name}}</td>
+                                        <td class="passcode">{{$item->passcode}}</td>
                                         <td class="rate" data-value="{{$item->rate}}">{{$item->rate}}%</td>
                                         <td class="score">{{$item->score}}</td>
                                         <td class="phone_number">{{$item->phone_number}}</td>
@@ -124,6 +126,7 @@
                                     <th style="width:40px">#</th>
                                     <th>{{__('words.username')}}</th>
                                     <th>{{__('words.name')}}</th>
+                                    <th>{{__('words.passcode')}}</th>
                                     <th>{{__('words.score')}}</th>
                                     <th>{{__('words.phone_number')}}</th>
                                     <th>{{__('words.last_login_ip')}}</th>
@@ -138,6 +141,7 @@
                                         <td>{{ (($data_user->currentPage() - 1 ) * $data_user->perPage() ) + $loop->iteration }}</td>
                                         <td class="username">{{$item->username}}</td>
                                         <td class="name">{{$item->name}}</td>
+                                        <td class="passcode">{{$item->passcode}}</td>
                                         <td class="score">{{$item->score}}</td>
                                         <td class="phone_number">{{$item->phone_number}}</td>
                                         <td class="last_login_ip">{{$item->last_login_ip}}</td>
@@ -275,6 +279,13 @@
                             </span>
                         </div>
                         <div class="form-group">
+                            <label class="control-label">{{__('words.passcode')}} <span class="text-danger">*</span></label>
+                            <input class="form-control passcode" type="text" name="passcode" placeholder="{{__('words.passcode')}}" />
+                            <span class="invalid-feedback passcode_error">
+                                <strong></strong>
+                            </span>
+                        </div>
+                        <div class="form-group">
                             <label class="control-label">{{__('words.phone_number')}}</label>
                             <input class="form-control phone_number" type="text" name="phone_number" placeholder="{{__('words.phone_number')}}" />
                             <span class="invalid-feedback phone_number_error">
@@ -408,6 +419,13 @@
                             <label class="control-label">{{__('words.name')}} <span class="text-danger">*</span></label>
                             <input class="form-control name" type="text" name="name" placeholder="{{__('words.name')}}" />
                             <span class="invalid-feedback name_error">
+                                <strong></strong>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">{{__('words.passcode')}} <span class="text-danger">*</span></label>
+                            <input class="form-control passcode" type="text" name="passcode" placeholder="{{__('words.passcode')}}" />
+                            <span class="invalid-feedback passcode_error">
                                 <strong></strong>
                             </span>
                         </div>

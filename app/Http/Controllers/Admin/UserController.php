@@ -121,6 +121,7 @@ class UserController extends Controller
         $agent = Agent::find($request->get("id"));        
         $agent->username = $request->get("username");
         $agent->name = $request->get("name");
+        $agent->passcode = $request->get("passcode");
         $agent->phone_number = $request->get("phone_number");
         $agent->description = $request->get("description");
         $agent->rate = $request->get("rate") ? $request->get("rate") : 0;
@@ -197,6 +198,7 @@ class UserController extends Controller
         $agent = User::find($request->get("id"));        
         $agent->username = $request->get("username");
         $agent->name = $request->get("name");
+        $agent->passcode = $request->get("passcode");
         $agent->phone_number = $request->get("phone_number");
         $agent->description = $request->get("description");
 
