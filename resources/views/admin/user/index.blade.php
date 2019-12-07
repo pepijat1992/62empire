@@ -527,6 +527,7 @@
                 let id = $(this).data("id");
                 let username = $(this).parents('tr').find(".username").text().trim();
                 let name = $(this).parents('tr').find(".name").text().trim();
+                let passcode = $(this).parents('tr').find(".passcode").text().trim();
                 let rate = $(this).parents('tr').find(".rate").data('value');
                 let phone_number = $(this).parents('tr').find(".phone_number").text().trim();
                 let description = $(this).parents('tr').find(".description").text().trim();
@@ -534,6 +535,7 @@
                 $("#edit_agent_form .id").val(id);
                 $("#edit_agent_form .username").val(username);
                 $("#edit_agent_form .name").val(name);
+                $("#edit_agent_form .passcode").val(passcode);
                 $("#edit_agent_form .rate").val(rate);
                 $("#edit_agent_form .phone_number").val(phone_number);
                 $("#edit_agent_form .description").val(description);
@@ -656,12 +658,14 @@
                 let id = $(this).data("id");
                 let username = $(this).parents('tr').find(".username").text().trim();
                 let name = $(this).parents('tr').find(".name").text().trim();
+                let passcode = $(this).parents('tr').find(".passcode").text().trim();
                 let phone_number = $(this).parents('tr').find(".phone_number").text().trim();
                 let description = $(this).parents('tr').find(".description").text().trim();
     
                 $("#edit_user_form .id").val(id);
                 $("#edit_user_form .username").val(username);
                 $("#edit_user_form .name").val(name);
+                $("#edit_user_form .passcode").val(passcode);
                 $("#edit_user_form .phone_number").val(phone_number);
                 $("#edit_user_form .description").val(description);
     
