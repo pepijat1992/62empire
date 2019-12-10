@@ -38,10 +38,8 @@
                             </span>
                         @enderror
                         <div class="infor mt-3">
-                            <ul>
-                                <li>{{__('words.have_not_account')}} <a href="{{route('register')}}">{{__('words.sign_up')}}</a></li>
-                                <li><a href="{{route('login')}}" class="text-primary">{{__('words.sign_in_with_password')}}</a></li>
-                            </ul>
+                            <a href="{{route('login')}}" class="text-primary">{{__('words.sign_in_with_password')}}</a> 
+                            <a href="{{route('register')}}" class="btn btn-primary">{{__('words.sign_up')}}</a></li>                               
                         </div>
                         <button type="button" class="btn btn-danger btn-block my-3 @if($status != 'verify') disabled @endif" id="btn-sign-in" @if($status != 'verify') disabled @endif>{{__('words.sign_in')}}</button>
                         <div class="mt-2 text-center">

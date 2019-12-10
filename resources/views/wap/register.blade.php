@@ -14,7 +14,7 @@
                 <form method="POST" action="" id="register_form">
                     @csrf
                     <div class="content b-shadow">
-                        <h3 class="text-inverse text-center">{{__('words.sign_up')}}</h3>
+                        <h3 class="text-inverse text-center">{{__('words.register')}}</h3>
                         <input type="text" class="form-control mt-3" name="agent_id" value="{{$agent}}" placeholder="{{__('words.agent_id')}}" />
                         <div class="input-group mt-3">
                             <div class="input-group-prepend">
@@ -46,7 +46,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <button type="button" class="btn btn-primary btn-block my-2 @if($status != 'verify') disabled @endif" id="btn-sign-up" @if($status != 'verify') disabled @endif>{{__('words.sign_up')}}</button>
+                        <button type="button" class="btn btn-primary btn-block my-2 @if($status != 'verify') disabled @endif" id="btn-sign-up" @if($status != 'verify') disabled @endif>{{__('words.register')}}</button>
                     </div>
                 </form>
             </div>

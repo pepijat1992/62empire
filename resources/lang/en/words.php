@@ -3,6 +3,7 @@
         'sign_in' => 'Sign In',
         'sign_out' => 'Sign Out',
         'sign_up' => 'Sign Up',
+        'register' => 'Register',
         'admin_sign_in' => 'Admin Sign In',
         'agent_sign_in' => 'Agent Sign In',
         'agent_sign_up' => 'Agent Sign Up',
