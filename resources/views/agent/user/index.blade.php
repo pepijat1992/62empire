@@ -63,7 +63,7 @@
                                         <td class="description">{{$item->description}}</td>
                                         <td class="py-1">
                                             <a href="#" class="btn btn-sm btn-primary btn-icon mr-1 btn-edit-agent" data-id="{{$item->id}}" data-toggle="tooltip" title="{{__('words.edit')}}"><i class="fa fa-edit"></i></a>
-                                            <a href="{{route('agent.agent.delete', $item->id)}}" class="btn btn-sm btn-danger btn-icon mr-1 btn-confirm" data-toggle="tooltip" title="{{__('words.delete')}}"><i class="fas fa-trash-alt"></i></a>
+                                            {{-- <a href="{{route('agent.agent.delete', $item->id)}}" class="btn btn-sm btn-danger btn-icon mr-1 btn-confirm" data-toggle="tooltip" title="{{__('words.delete')}}"><i class="fas fa-trash-alt"></i></a> --}}
                                             <a href="{{route('agent.set_score', ['agent', $item->id])}}" class="btn btn-sm btn-info btn-icon mr-1" data-toggle="tooltip" title="{{__('words.set_score')}}"><i class="fas fa-coins"></i></a>
                                             <a href="{{route('agent.report.agent', $item->id)}}" class="btn btn-sm btn-secondary btn-icon mr-1" data-toggle="tooltip" title="{{__('words.report')}}"><i class="fas fa-chart-pie"></i></a>
                                         </td>
@@ -124,7 +124,7 @@
                                         <td class="description">{{$item->description}}</td>
                                         <td class="py-1">
                                             <a href="#" class="btn btn-sm btn-primary btn-icon mr-1 btn-edit-user" data-id="{{$item->id}}" data-toggle="tooltip" title="{{__('words.edit')}}"><i class="fa fa-edit"></i></a>
-                                            <a href="{{route('agent.user.delete', $item->id)}}" class="btn btn-sm btn-danger btn-icon mr-1 btn-confirm" data-toggle="tooltip" title="{{__('words.delete')}}"><i class="fas fa-trash-alt"></i></a>
+                                            {{-- <a href="{{route('agent.user.delete', $item->id)}}" class="btn btn-sm btn-danger btn-icon mr-1 btn-confirm" data-toggle="tooltip" title="{{__('words.delete')}}"><i class="fas fa-trash-alt"></i></a> --}}
                                             <a href="{{route('agent.set_score', ['user', $item->id])}}" class="btn btn-sm btn-info btn-icon mr-1" data-toggle="tooltip" title="{{__('words.set_score')}}"><i class="fas fa-coins"></i></a>
                                             <a href="{{route('agent.report.user', $item->id)}}" class="btn btn-sm btn-secondary btn-icon mr-1" data-toggle="tooltip" title="{{__('words.report')}}"><i class="fas fa-chart-pie"></i></a>
                                         </td>
