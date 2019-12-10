@@ -39,7 +39,7 @@
                         @enderror
                         <div class="infor mt-3">
                             <a href="{{route('login')}}" class="text-primary">{{__('words.sign_in_with_password')}}</a> 
-                            <a href="{{route('register')}}" class="btn btn-primary float-right">{{__('words.sign_up')}}</a></li>                               
+                            <a href="{{route('register')}}" class="btn btn-lg btn-warning float-right">{{__('words.register')}}</a></li>                               
                         </div>
                         <button type="button" class="btn btn-danger btn-block my-3 @if($status != 'verify') disabled @endif" id="btn-sign-in" @if($status != 'verify') disabled @endif>{{__('words.sign_in')}}</button>
                         <div class="mt-2 text-center">
