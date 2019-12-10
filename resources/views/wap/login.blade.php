@@ -27,10 +27,8 @@
                             </span>
                         @enderror
                         <div class="infor mt-3">
-                            <ul>
-                                <li>{{__('words.have_not_account')}} <a href="{{route('register')}}">{{__('words.sign_up')}}</a></li>
-                                <li><a href="{{route('login_verification')}}" class="text-primary">{{__('words.sign_in_with_verification_code')}}</a></li>
-                            </ul>
+                            <a href="{{route('login_verification')}}" class="text-primary">{{__('words.sign_in_with_verification_code')}}</a>
+                            <a href="{{route('register')}}" class="btn btn-primary float-right">{{__('words.sign_up')}}</a>
                         </div>
                         <button type="submit" class="btn btn-primary btn-block my-3" id="btn-sign-in">{{__('words.sign_in')}}</button>
                         <div class="mt-2 text-center">
