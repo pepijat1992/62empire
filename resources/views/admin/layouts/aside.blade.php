@@ -23,6 +23,7 @@
                 @php
                     $sale_items = ['deposit', 'withdraw'];
                 @endphp
+                
                 <li>
                     <a class="has-arrow material-ripple" href="#">
                         <i class="fas fa-money-bill-alt mr-2"></i>
